@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">ركعة</string>
+    <string name="splashText">برجاء الانتظار\nسوف يتم تحميل موقعك لمواعيد الصلاة</string>
+    <string name="textview_dialog">لم نتمكن معرفة موقعك \nلتحديد مواعيد الصلوات حسب بلدك \nيمكنك أختيار بلدك من القائمة</string>
+    <string name="button_dialog_change_country">اذهب لتغير البلد</string>
+    <string name="button_dialog_cancel">تخطى</string>
+    <string name="no_internet_message">لا يوجد أتصال بالأنترنت</string>
+    <string name="Gom3aPrayer">صلاة الجمعة</string>
+    <string name="EidPrayer">صلاة العيد</string>
+    <string name="GanazaPrayer">صلاة الجنازة</string>
+    <string name="Tarawy7Prayer">صلاة التراويح</string>
+    <string name="ElfgrPrayer">صلاة الفجر</string>
+    <string name="ElTohrPrayer">صلاة الظهر</string>
+    <string name="ElAsrPrayer">صلاة العصر</string>
+    <string name="ElHashaPrayer">صلاة العشاء</string>
+    <string name="ElMagrbPrayer">صلاة المغرب</string>
+
+    <string name="detailHanfi">المذهب الحنفى</string>
+    <string name="detailShaf3y">المذهب الشافعى</string>
+    <string name="detailMalki">المذهب المالكى</string>
+
+    <string name="detailBody">إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط</string>
+
+
+</resources>

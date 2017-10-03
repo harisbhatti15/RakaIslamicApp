@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="20dp"
+    android:layout_gravity="center"
+    android:weightSum="1"
+    android:background="@drawable/rounded_shap_bg">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textColor="@color/blackColor"
+        android:text="@string/textview_dialog"
+        android:layout_weight="0.25"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/off_white"
+        >
+
+    </View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/whiteColor"
+        android:weightSum="1"
+        android:layout_weight="0.75">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button_change"
+            android:background="@color/colorGold"
+            android:layout_weight="0.48"
+            android:textSize="16sp"
+            android:layout_gravity="start|end"
+            android:textColor="@color/whiteColor"
+            android:text="@string/button_dialog_change_country"
+            />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="match_parent"
+            android:background="@color/off_white"
+            >
+
+        </View>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/button_cancel"
+            android:background="@color/colorGold"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/whiteColor"
+            android:layout_gravity="start|end"
+            android:text="@string/button_dialog_cancel"
+            android:layout_weight="0.48"
+            />
+    </LinearLayout>
+
+</LinearLayout>

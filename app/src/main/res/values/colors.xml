@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#9c723b</color>
+    <color name="colorPrimaryDark">#946C38</color>
+    <color name="colorAccent">#ffffff</color>
+    
+    
+    <color name="colorGold">#bb912f</color>
+    <color name="colorDarkJungleGreen">#1c1d1d</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorPaleBrown">#9c723b</color>
+    <color name="colorDarkPaleBrown">#946C38</color>
+    <color name="colorOuterSpace">#464646</color>
+
+
+    <color name="colorPlatinum">#e1e1e1</color>
+
+
+    <color name="darkColorDark">#6A6A6A</color>
+    <color name="greenColorLight">#0EEA0E</color>
+    <color name="greenColorDark">#35902C</color>
+    <color name="yellowColorLight">#F0ED0B</color>
+    <color name="yellowColorDark">#E1DE13</color>
+    <color name="redColorLight">#F0120B</color>
+    <color name="redColorDark">#B60000</color>
+    <color name="startShadowRed">#d1F0120B</color>
+    <color name="endShadowRed">#adF0120B</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="blackColor">#000000</color>
+    <color name="sinch_purple">#ff63029d</color>
+    <color name="off_white">#BFBFBF</color>
+    <color name="dark_gray">#ffb3b3b3</color>
+    <color name="very_dark_gray">#636363</color>
+    <color name="gray">#8b8383</color>
+</resources>
