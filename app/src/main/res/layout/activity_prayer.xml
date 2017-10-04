@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_white"
+    tools:context="com.pentavalue.yousry.rakaislamicapp.kotlin.activities.PrayerActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:navigationIcon="@drawable/ic_left_white_arrow"
+        android:background="@color/colorPaleBrown"
+        android:id="@+id/toolbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/Gom3aPrayer"
+            android:textColor="@color/whiteColor"/>
+
+
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/toolbar"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start|end"
+                    android:src="@drawable/icon_pray"
+                    android:layout_weight="0.8"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/information_about_prayer"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_weight="0.2"
+                    android:layout_gravity="start|end"
+                    android:gravity="start|end|center"
+                    android:textColor="@color/colorPaleBrown"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:background="@color/whiteColor"
+                android:textSize="14sp"
+                android:textColor="@color/colorDimGray"
+                android:text="@string/Gom3aDetailsPrayer"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/toolbar"
+                android:orientation="horizontal"
+                android:weightSum="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="start|end"
+                    android:tint="@color/colorPaleBrown"
+                    android:src="@drawable/icon_rakaa"
+                    android:layout_weight="0.8"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/rakaat"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_weight="0.2"
+                    android:layout_gravity="start|end"
+                    android:gravity="start|end|center"
+                    android:textColor="@color/colorPaleBrown"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="30dp"
+                android:background="@color/whiteColor"
+                android:layout_below="@+id/recyclurPrayer"
+                android:orientation="vertical">
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/recyclurRakaat"
+                    >
+
+                </android.support.v7.widget.RecyclerView>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:verticalScrollbarPosition="defaultPosition"
+                    >
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclurDetails"
+                        android:layout_marginTop="10dp"
+                        android:isScrollContainer="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </android.support.v7.widget.RecyclerView>
+                </ScrollView>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

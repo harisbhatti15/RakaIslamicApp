@@ -1,25 +1,52 @@
 <resources>
-    <string name="app_name">ركعة</string>
-    <string name="splashText">برجاء الانتظار\nسوف يتم تحميل موقعك لمواعيد الصلاة</string>
-    <string name="textview_dialog">لم نتمكن معرفة موقعك \nلتحديد مواعيد الصلوات حسب بلدك \nيمكنك أختيار بلدك من القائمة</string>
-    <string name="button_dialog_change_country">اذهب لتغير البلد</string>
-    <string name="button_dialog_cancel">تخطى</string>
-    <string name="no_internet_message">لا يوجد أتصال بالأنترنت</string>
-    <string name="Gom3aPrayer">صلاة الجمعة</string>
-    <string name="EidPrayer">صلاة العيد</string>
-    <string name="GanazaPrayer">صلاة الجنازة</string>
-    <string name="Tarawy7Prayer">صلاة التراويح</string>
-    <string name="ElfgrPrayer">صلاة الفجر</string>
-    <string name="ElTohrPrayer">صلاة الظهر</string>
-    <string name="ElAsrPrayer">صلاة العصر</string>
-    <string name="ElHashaPrayer">صلاة العشاء</string>
-    <string name="ElMagrbPrayer">صلاة المغرب</string>
+    <string name="app_name">Raka</string>
+    <string name="splashText">please wait\nYour location will be loaded for prayer times</string>
+    <string name="textview_dialog">We can not detect your Location \nTo determine the prayer times according to your country\n\n</string>
+    <string name="button_dialog_change_country">Change your country</string>
+    <string name="textview_dialog_choose">Choose from Menu</string>
+    <string name="button_dialog_cancel">Skip</string>
+    <string name="no_internet_message">No internet connection</string>
+    <string name="Gom3aPrayer">Friday Prayer</string>
+    <string name="EidPrayer">Eid Prayer</string>
+    <string name="GanazaPrayer">Funeral Prayer</string>
+    <string name="Tarawy7Prayer">Taraweeh Prayer</string>
+    <string name="ElfgrPrayer">Dawn Prayer</string>
+    <string name="ElTohrPrayer">Noon Prayer</string>
+    <string name="ElAsrPrayer">Afternoon Prayer</string>
+    <string name="ElHashaPrayer">Sunset Prayer</string>
+    <string name="ElMagrbPrayer">Night Prayer</string>
 
-    <string name="detailHanfi">المذهب الحنفى</string>
-    <string name="detailShaf3y">المذهب الشافعى</string>
-    <string name="detailMalki">المذهب المالكى</string>
+    <string name="detailHanfi">Hanafi School</string>
+    <string name="detailShaf3y">Shafi\'i School</string>
+    <string name="detailMalki">Maliki School</string>
+    <string name="detailHanbali">Hanbali School</string>
+    <string name="detailZahiri">Zahiri School</string>
 
-    <string name="detailBody">إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط</string>
+    <string name="detailBody">If you miss one rak\'ah, then after peace in front of you comes only a rak\'ah with the opening</string>
+    <string name="app_about">About app</string>
+    <string name="app_share">Share app</string>
 
+    <string name="country_text_view">Country</string>
 
+    <string name="Gom3aDetailsPrayer">Friday prayer is a congregational prayer (ṣalāt) that Muslims hold every Friday, just after noon instead of the Zuhr prayer. Muslims pray ordinarily five times each day according to the sun\'s sky path regardless of time zones.</string>
+    <string name="information_about_prayer">Information about prayer</string>
+    <string name="rakaat">Rakaat</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="app_version">version 1.1</string>
+    <string name="app_about_details">Here is a talk about the definition of the application and this text is just an example of writing text P page for the application and does not have a specific meaning here The words of the definition of the application This text is just an example of writing text P page for the application and has no specific meaning Here is a definition of the application This text is just an example of The text of the page on the application has no specific meaning here. The definition of the application This text is just an example of writing a text P page for the application and has no specific meaning.</string>
+    <string name="app_about_details_2">If you want to report any of the information,\nyou can send an e - mail</string>
+
+    <string-array name="countries">
+        <item>Egypt - Cairo</item>
+        <item>Egypt - Alexandria</item>
+        <item>Egypt - Luxor</item>
+        <item>Egypt - Aswan</item>
+        <item>Egypt - Giza</item>
+        <item>Saudi Arabia - ElRyad</item>
+        <item>Saudi Arabia - Makka</item>
+        <item>Saudi Arabia - Gadda</item>
+        <item>Sudan - Khartom</item>
+        <item>Iran - Tahran</item>
+        <item>Turkey - Ankara</item>
+    </string-array>
 </resources>

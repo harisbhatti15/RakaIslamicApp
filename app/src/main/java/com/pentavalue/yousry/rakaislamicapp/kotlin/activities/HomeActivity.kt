@@ -1,7 +1,11 @@
 package com.pentavalue.yousry.rakaislamicapp.kotlin.activities
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.pentavalue.yousry.rakaislamicapp.R
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.PrayerAdapter
 import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer
@@ -11,12 +15,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Gravity
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import android.support.v7.widget.SnapHelper
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.pentavalue.yousry.rakaislamicapp.Util.Util
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.DetailsAdapter
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.RakaatAdapter
+import com.pentavalue.yousry.rakaislamicapp.java.dialogs.CustomDialog
 import com.pentavalue.yousry.rakaislamicapp.java.models.Detail
 
 
@@ -30,7 +37,37 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(my_toolbar)
+
         prayers = getPrayers()
+        val sharedPref : SharedPreferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
+
+        if(!sharedPref!!.getBoolean(Util.CHECK_LOACTION,false)){
+            // Shared Pref contain False Value for loaction
+            val dialog = CustomDialog(this)
+            Log.v("tag", "shared is false")
+            dialog.show()
+        }else{
+            // Close Dialog
+            if(intent.hasExtra("location")){
+                if(!intent.getBooleanExtra("location",false)){
+                    val dialog = CustomDialog(this)
+                    Log.v("tag","intent is false")
+                    dialog.show()
+                }
+            }
+        }
+
+
+
+
+        bindView()
+
+    }
+
+    fun bindView(){
+        menu_nav_icon.setOnClickListener(View.OnClickListener { view ->
+            startActivity(Intent(this, MenuActivity::class.java))
+        })
 
         val llm = LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false)
@@ -43,7 +80,7 @@ class HomeActivity : AppCompatActivity() {
                     adapterRakaat!!.rakaats =prayer.rakaat
 
 
-        })
+                })
         recyclurPrayer.setLayoutManager(llm)
         recyclurPrayer.adapter =adapter
 
@@ -58,7 +95,7 @@ class HomeActivity : AppCompatActivity() {
                     Toast.makeText(this,rakaat.title, Toast.LENGTH_LONG).show()
 
 
-        })
+                })
         recyclurRakaat.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false))
 
@@ -69,7 +106,6 @@ class HomeActivity : AppCompatActivity() {
         recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, true))
         recyclurDetails.adapter =adapterDetails
-
     }
 
 
@@ -345,5 +381,7 @@ class HomeActivity : AppCompatActivity() {
 
         return prayers
     }
+
+
 
 }

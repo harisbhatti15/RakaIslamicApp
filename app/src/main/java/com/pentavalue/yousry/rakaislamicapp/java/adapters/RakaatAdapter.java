@@ -86,6 +86,9 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
 
     public void setRakaats(List<Rakaat> rakaats) {
         this.rakaats = rakaats;
+        lastView =null;
+        
+        lastItemModel =rakaats.get(0);
         notifyDataSetChanged();
     }
 }

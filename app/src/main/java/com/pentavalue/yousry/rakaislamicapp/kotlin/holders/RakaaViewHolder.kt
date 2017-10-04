@@ -28,6 +28,5 @@ class RakaaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(rakaat: Rakaat) {
         imageView.setImageDrawable(rakaat.drawable)
         title.text = rakaat.title
-
     }
 }

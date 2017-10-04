@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.pentavalue.yousry.rakaislamicapp.R;
+import com.pentavalue.yousry.rakaislamicapp.kotlin.activities.CountryActivity;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.activities.HomeActivity;
 
 
@@ -59,6 +60,13 @@ public class CustomDialog extends Dialog {
             public void onClick(View view) {
                 //context.startActivity(new Intent(context, CountriesActivity.class).putExtra("TAG","dialog"));
                 Intent intent =new Intent(context, HomeActivity.class);
+            }
+        });
+        changeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                context.startActivity(new Intent(context, CountryActivity.class));
+                dismiss();
             }
         });
 

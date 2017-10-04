@@ -14,7 +14,7 @@
         android:id="@+id/detailTitle"
         android:layout_gravity="start|end"
         android:textColor="@color/colorGold"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textStyle="bold"
         />
     <TextView

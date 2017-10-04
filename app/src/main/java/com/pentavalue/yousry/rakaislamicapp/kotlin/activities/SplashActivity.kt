@@ -39,29 +39,45 @@ class SplashActivity : AppCompatActivity() {
         avi.setIndicator(Util.ANIMATION_LOADING);
     }
 
+    var locationCheck :Boolean =false;
     var x = 0L
     override fun onResume() {
         super.onResume()
         try {
             val intent = Intent(this, HomeActivity::class.java)
+
             val sharedPref :SharedPreferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
 
             if(sharedPref != null && sharedPref!!.getBoolean(Util.CHECK_LOACTION,false)){
                 Handler().postDelayed({
+                    locationCheck =true
                     Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
-                    startActivity(intent)
+                    startActivity(intent.putExtra("location",locationCheck))
                     finish()
                 }, 5000)
             }
             else if(Util.isNetworkAvailable(this)){
                 getLocation()
-                startActivity(intent)
+
+                Handler().postDelayed({
+
+                    Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
+                    locationCheck =true
+                    startActivity(intent.putExtra("location",locationCheck))
+                    finish()
+                }, 5000)
             }else{
                 Toast.makeText(this, getString(R.string.no_internet_message), Toast.LENGTH_SHORT).show()
-                startActivity(intent)
+
+                Handler().postDelayed({
+                    locationCheck =false
+                    startActivity(intent.putExtra("location",locationCheck))
+                    finish()
+                }, 5000)
             }
         }catch (e :KotlinNullPointerException){
             Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
+            locationCheck =false
         }
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -73,7 +89,7 @@ class SplashActivity : AppCompatActivity() {
                 recreate()
             } else {
                 Toast.makeText(this, "Until you grant the permission, we canot take your location", Toast.LENGTH_SHORT).show();
-                val intent = Intent(this, HomeActivity::class.java)
+                locationCheck= false
 
                 finish()
             }
@@ -101,6 +117,7 @@ class SplashActivity : AppCompatActivity() {
 
                 val preferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
 
+                locationCheck =true
                 val editor = preferences.edit()
 
                 editor!!.putBoolean(Util.CHECK_LOACTION,true)
@@ -109,6 +126,7 @@ class SplashActivity : AppCompatActivity() {
                 editor.apply()
             }catch (e: KotlinNullPointerException){
                 Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
+                locationCheck =false
             }
 
 

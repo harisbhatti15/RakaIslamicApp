@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">ركعة</string>
     <string name="splashText">برجاء الانتظار\nسوف يتم تحميل موقعك لمواعيد الصلاة</string>
-    <string name="textview_dialog">لم نتمكن معرفة موقعك \nلتحديد مواعيد الصلوات حسب بلدك \nيمكنك أختيار بلدك من القائمة</string>
+    <string name="textview_dialog">لم نتمكن معرفة موقعك \nلتحديد مواعيد الصلوات حسب بلدك \n</string>
     <string name="button_dialog_change_country">اذهب لتغير البلد</string>
+    <string name="textview_dialog_choose">يمكنك أختيار بلدك من القائمة</string>
     <string name="button_dialog_cancel">تخطى</string>
     <string name="no_internet_message">لا يوجد أتصال بالأنترنت</string>
     <string name="Gom3aPrayer">صلاة الجمعة</string>
@@ -14,4 +15,36 @@
     <string name="ElAsrPrayer">صلاة العصر</string>
     <string name="ElHashaPrayer">صلاة العشاء</string>
     <string name="ElMagrbPrayer">صلاة المغرب</string>
+
+    <string name="detailHanfi">المذهب الحنفى</string>
+    <string name="detailShaf3y">المذهب الشافعى</string>
+    <string name="detailMalki">المذهب المالكى</string>
+    <string name="detailHanbali">المذهب الحنبلى</string>
+    <string name="detailZahiri">المذهب الظاهري‎‎</string>
+    <string name="detailBody">إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط</string>
+    <string name="app_about">عن التطبيق</string>
+    <string name="app_share">مشاركة التطبيق</string>
+    <string name="country_text_view">البلد</string>
+
+    <string name="Gom3aDetailsPrayer">صلاة الجمعة هي صلاة تقام كل يوم جمعة بعد دخول وقت صلاة الظهر في منتصف النهار بعد زوال الشمس. ويشترط أن يتقدمها خطبتان قبل الصلاة، يبدأ الخطيب بخطبة الجمعة الأولى ثم يجلس بفاصل يسير ثم يقوم للخطبة الثانية. وصلاة الجمعة صلاة جهرية تتكون من ركعتين فقط، وهي الصلاة الجهرية الوحيدة في وضح النهار دون بقية الصلوات النهارية، وصلاة الجمعة فرض عين على كل المسلمين الذكور الأحرار البالغين المقيمين المستوطنين في أبنية إن كانوا غير معذورين. واختلف فقهاء الإسلام على تحديد أقل عدد تجب به صلاة الجمعة فمنهم من قال إن كان في بلدة من البلدات أربعون ممن تنطبق عليهم الشروط السابقة فتجب عندها صلاة الجمعة ومنهم من أوجبها بأقل من ذلك العدد وهناك من قال إنها من الممكن أن تعقد بمصليين اثنين.</string>
+    <string name="information_about_prayer">معلومات عن الصلاة</string>
+    <string name="rakaat">ركعات</string>
+    <string name="no_data_found">لا يوجد بيانات</string>
+    <string name="app_version">نسخة 1.1</string>
+    <string name="app_about_details">هنا كلام تعريف عن التطبيق وهذا النص مجرد مثال عن كتابه نص ف صفحه عن التطبي وليس له معنى معين هنا كلام تعريف عن التطبيق وهذا النص مجرد مثال عن كتابه نص ف صفحه عن التطبيق وليس له معنى معين هنا كلام تعريف عن التطبيق وهذا النص مجرد مثال عن كتابه نص ف صفحه عن التطبيق وليس له معنى معين هنا كلام تعريف عن التطبيق وهذا النص مجرد مثال عن كتابه نص ف صفحه عن التطبيق وليس له معنى معين</string>
+    <string name="app_about_details_2">ان اردت الابلاغ عن اى من المعلومات الموجوده يمكنك ارسال رساله عالبريد الاإلكترونى</string>
+
+    <string-array name="countries">
+        <item>مصر - القاهرة</item>
+        <item>مصر - الأسكندرية</item>
+        <item>مصر - الأقصر</item>
+        <item>مصر - أسوان</item>
+        <item>مصر - الجيزة</item>
+        <item>السعودية - الرياض</item>
+        <item>السعودية - مكة</item>
+        <item>السعودية - جدة</item>
+        <item>السودان - الخارطوم</item>
+        <item>إيران - طهران</item>
+        <item>تركيا - أنقرة</item>
+    </string-array>
 </resources>
