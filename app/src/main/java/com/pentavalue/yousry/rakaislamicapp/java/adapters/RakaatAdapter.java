@@ -6,12 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
 import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.RakaaViewHolder;
 import com.pentavalue.yousry.rakaislamicapp.java.models.Rakaat;
 
+import org.intellij.lang.annotations.Language;
+
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by yousry on 10/3/2017.
@@ -40,6 +44,14 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
     @Override
     public RakaaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rakaa_home,parent, false);
+
+        if (Locale.getDefault().getDisplayLanguage().equals("English") ||
+                Locale.getDefault().getDisplayLanguage().equals("english") ||
+                Locale.getDefault().getDisplayLanguage().equals("en")){
+        }else{
+            Fonty.setFonts((ViewGroup) view);
+        }
+
         return new RakaaViewHolder(view);
     }
 

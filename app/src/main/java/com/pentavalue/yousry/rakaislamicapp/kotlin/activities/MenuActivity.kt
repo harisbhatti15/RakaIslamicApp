@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.marcinorlowski.fonty.Fonty
 import com.pentavalue.yousry.rakaislamicapp.R
 import com.pentavalue.yousry.rakaislamicapp.Util.Util
 import kotlinx.android.synthetic.main.activity_menu.*
@@ -17,7 +18,11 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+        Fonty.setFonts(this)
         setSupportActionBar(my_toolbar)
+        val sharedPref =getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
+
+        text_location.text =sharedPref.getString(Util.COUNTRY_SHARED_PREFERENCE, resources.getString(R.string.makka))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setHomeButtonEnabled(true)

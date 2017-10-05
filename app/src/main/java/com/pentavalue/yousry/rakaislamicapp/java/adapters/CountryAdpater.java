@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 
+import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.CountryViewHolder;
 
@@ -32,6 +33,7 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
         this.context = context;
         this.countries = countries;
         holderList =new ArrayList<>();
+
         lastPosition =0;
         selectedItem =countries.get(0);
     }
@@ -40,7 +42,7 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
     public CountryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_countries_menu_list, parent,false);
         CountryViewHolder  countryViewHolder=new CountryViewHolder(view);
-
+        Fonty.setFonts((ViewGroup) view);
         return countryViewHolder;
     }
 

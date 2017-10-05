@@ -24,6 +24,7 @@ import java.util.*
 import kotlin.concurrent.timerTask
 import android.preference.PreferenceManager
 import android.content.Intent
+import com.marcinorlowski.fonty.Fonty
 import com.pentavalue.yousry.rakaislamicapp.java.dialogs.CustomDialog
 
 
@@ -36,6 +37,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        Fonty.setFonts(this)
         avi.setIndicator(Util.ANIMATION_LOADING);
     }
 
@@ -44,28 +46,21 @@ class SplashActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         try {
-            val intent = Intent(this, HomeActivity::class.java)
 
             val sharedPref :SharedPreferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
 
-            if(sharedPref != null && sharedPref!!.getBoolean(Util.CHECK_LOACTION,false)){
+            val intent = Intent(this, HomeActivity::class.java)
+
+            /*if(sharedPref != null && sharedPref!!.getBoolean(Util.CHECK_LOACTION,false)){
                 Handler().postDelayed({
                     locationCheck =true
                     Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
                     startActivity(intent.putExtra("location",locationCheck))
                     finish()
                 }, 5000)
-            }
-            else if(Util.isNetworkAvailable(this)){
+            }*/
+            if(Util.isNetworkAvailable(this)){
                 getLocation()
-
-                Handler().postDelayed({
-
-                    Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
-                    locationCheck =true
-                    startActivity(intent.putExtra("location",locationCheck))
-                    finish()
-                }, 5000)
             }else{
                 Toast.makeText(this, getString(R.string.no_internet_message), Toast.LENGTH_SHORT).show()
 
@@ -85,57 +80,62 @@ class SplashActivity : AppCompatActivity() {
         if (requestCode == PERMISSIONS_REQUEST_ACCESS_LOCATION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission is granted
-                //showContacts();
-                recreate()
+
+                runLocation()
+
+
             } else {
                 Toast.makeText(this, "Until you grant the permission, we canot take your location", Toast.LENGTH_SHORT).show();
-                locationCheck= false
-
+                val intent = Intent(this, HomeActivity::class.java)
+                locationCheck =false
+                startActivity(intent.putExtra("location",locationCheck))
                 finish()
             }
         }
     }
 
 
-    @SuppressLint("ApplySharedPref")
-    private fun getLocation() {
+
+    private fun getLocation() :Boolean {
+        var result =false
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+         //if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            //Toast.makeText(this, "This Version "+Build.VERSION.BASE_OS+" is not support", Toast.LENGTH_LONG).show()
             requestPermissions(arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), PERMISSIONS_REQUEST_ACCESS_LOCATION);
         } else {
-            val gps: GPSTracker = GPSTracker(this)
-            val location = gps.getLocation()
-            val gcd = Geocoder(this, resources.configuration.locale)
-            try{
-                val addresses = gcd.getFromLocation(location!!.latitude, location?.longitude, 1)
-                val nameOfState: String = addresses[0].locality
-                val nameOfCity: String = addresses[0].adminArea
-                val nameOfCountry: String = addresses[0].countryName
-                Toast.makeText(this,
-                        """City is $nameOfCity Country is $nameOfCountry""",
-                        Toast.LENGTH_LONG).show()
-                val sharedPrefEditor :SharedPreferences.Editor? = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE).edit();
-
-                val preferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
-
+            runLocation()
+        }
+        return result
+    }
+    @SuppressLint("ApplySharedPref")
+    private fun runLocation(){
+        val gps = GPSTracker(this)
+        val location = gps.getLocation()
+        val gcd = Geocoder(this, resources.configuration.locale)
+        try{
+            val addresses = gcd.getFromLocation(location!!.latitude, location?.longitude, 1)
+            val nameOfCity: String = addresses[0].adminArea
+            val nameOfCountry: String = addresses[0].countryName
+            Toast.makeText(this,
+                    """City is $nameOfCity Country is $nameOfCountry""",
+                    Toast.LENGTH_LONG).show()
+            val preferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
+            locationCheck =true
+            val editor = preferences.edit()
+            editor!!.putBoolean(Util.CHECK_LOACTION,true)
+            editor.putString(Util.CITY_SHARED_PREFERENCE,nameOfCity)
+            editor.putString(Util.COUNTRY_SHARED_PREFERENCE,nameOfCountry)
+            editor.apply()
+            val intent = Intent(this, HomeActivity::class.java)
+            Handler().postDelayed({
+                Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
                 locationCheck =true
-                val editor = preferences.edit()
-
-                editor!!.putBoolean(Util.CHECK_LOACTION,true)
-                editor.putString(Util.CITY_SHARED_PREFERENCE,nameOfCity)
-                editor.putString(Util.COUNTRY_SHARED_PREFERENCE,nameOfCountry)
-                editor.apply()
-            }catch (e: KotlinNullPointerException){
-                Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
-                locationCheck =false
-            }
-
-
-
-
+                startActivity(intent.putExtra("location",locationCheck))
+                finish()
+            }, 5000)
+        }catch (e: KotlinNullPointerException){
+            Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
+            locationCheck =false
         }
     }
-
-
-
-
 }

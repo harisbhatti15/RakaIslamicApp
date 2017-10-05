@@ -3,9 +3,9 @@
     <color name="colorPrimary">#9c723b</color>
     <color name="colorPrimaryDark">#946C38</color>
     <color name="colorAccent">#ffffff</color>
-    
-    
-    <color name="colorGold">#bb912f</color>
+
+
+    <color name="colorGold">#ac8322</color>
     <color name="colorDarkJungleGreen">#1c1d1d</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
@@ -16,9 +16,20 @@
     <color name="colorDimGray">#FF707071</color>
     <color name="colorIsabelline">#FFEBEBEB</color>
 
+    <color name="MediumJungleGreen">#263238</color>
+    <color name="SealBrown">#261415</color>
+    <color name="test2">#261315</color>
+    <color name="test">#1D1F25</color>
     <color name="colorPlatinum">#e1e1e1</color>
 
-
+    <color name="PersianPlum">#FF712315</color>
+    <color name="YellowGreen">#FF8AC53E</color>
+    <color name="Sinopia">#FFE43A15</color>
+    <color name="Jasper">#FFCD3A47</color>
+    <color name="Onyx">#FF111313</color>
+    <color name="Firebrick">#FFBD1E2C</color>
+    <color name="VividAubum">#FF971E20</color>
+    <color name="Teal_blue">#FF276974</color>
     <color name="darkColorDark">#6A6A6A</color>
     <color name="greenColorLight">#0EEA0E</color>
     <color name="greenColorDark">#35902C</color>

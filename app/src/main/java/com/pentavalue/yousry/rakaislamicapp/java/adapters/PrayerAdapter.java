@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.PrayerViewHolder;
 import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer;
@@ -30,7 +31,7 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder>{
     @Override
     public PrayerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_prayer_home, parent, false);
-
+        Fonty.setFonts((ViewGroup) view);
         return new PrayerViewHolder(view);
     }
 
@@ -43,6 +44,7 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder>{
                 listener.onItemClicked(view, prayers.get(position));
             }
         });
+        holder.getContainer().setBackgroundColor(context.getResources().getColor(prayers.get(position).getColor()));
     }
 
     @Override

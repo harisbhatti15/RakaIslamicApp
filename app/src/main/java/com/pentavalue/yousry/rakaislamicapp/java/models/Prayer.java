@@ -12,6 +12,7 @@ public class Prayer {
     private String title;
     private String time;
     private Drawable drawable;
+    private int color;
     private List<Rakaat> rakaat = new ArrayList<Rakaat>();
 
     /**
@@ -21,6 +22,7 @@ public class Prayer {
         this.title = "";
         this.time = "";
         this.drawable = null;
+        color =0;
     }
 
     /**
@@ -33,9 +35,17 @@ public class Prayer {
         this.time = time;
         this.drawable = null;
         this.rakaat = rakaat;
-
+        this.color =0;
     }
 
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
 
     public Drawable getDrawable() {
         return drawable;

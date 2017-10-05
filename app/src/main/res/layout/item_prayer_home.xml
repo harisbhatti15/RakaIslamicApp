@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+
         android:background="@drawable/card_bg_elfagr"
         android:gravity="bottom"
         >
@@ -25,32 +26,39 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="1"
+            android:layout_height="25dp"
+            android:id="@+id/container"
             android:orientation="horizontal"
             >
-
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
-                android:text="TIME"
-                android:id="@+id/timeView"
-                android:gravity="start|end"
-                android:drawableRight="@drawable/clock"
-                android:padding="5dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/whiteColor"/>
-            <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textColor="@color/whiteColor"
                 android:id="@+id/nameView"
-                android:gravity="start|end"
+                android:gravity="center"
+                android:layout_gravity="end|start"
                 android:padding="5dp"
                 android:text="NAME"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:layout_weight="0.5"/>
+                android:layout_weight="0.4"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+
+                android:src="@drawable/clock"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:text="TIME"
+                android:id="@+id/timeView"
+                android:gravity="center"
+                android:layout_gravity="start|end"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="@color/whiteColor"/>
 
         </LinearLayout>
 

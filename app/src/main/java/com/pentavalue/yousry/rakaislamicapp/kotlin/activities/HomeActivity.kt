@@ -1,5 +1,6 @@
 package com.pentavalue.yousry.rakaislamicapp.kotlin.activities
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -20,6 +21,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.marcinorlowski.fonty.Fonty
 import com.pentavalue.yousry.rakaislamicapp.Util.Util
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.DetailsAdapter
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.RakaatAdapter
@@ -33,10 +35,12 @@ class HomeActivity : AppCompatActivity() {
     var adapterRakaat : RakaatAdapter? = null
     private var prayers: List<Prayer>? = null
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         setSupportActionBar(my_toolbar)
+        Fonty.setFonts(this);
 
         prayers = getPrayers()
         val sharedPref : SharedPreferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
@@ -55,6 +59,7 @@ class HomeActivity : AppCompatActivity() {
                     dialog.show()
                 }
             }
+            country_prayers_view.text = getString(R.string.text_view_home_city) +" "+ sharedPref.getString(Util.CITY_SHARED_PREFERENCE,resources.getString(R.string.makka))
         }
 
 
@@ -72,7 +77,7 @@ class HomeActivity : AppCompatActivity() {
         val llm = LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false)
 
-        llm.stackFromEnd =true
+        llm.stackFromEnd =false
 
         val adapter = PrayerAdapter(this, prayers,
                 PrayerAdapter.OnItemClickedListener { view, prayer ->
@@ -83,6 +88,7 @@ class HomeActivity : AppCompatActivity() {
                 })
         recyclurPrayer.setLayoutManager(llm)
         recyclurPrayer.adapter =adapter
+
 
 
         val snapHelperStart = GravitySnapHelper(Gravity.START)
@@ -112,22 +118,27 @@ class HomeActivity : AppCompatActivity() {
     fun getPrayers (): List<Prayer>{
         val prayers = ArrayList<Prayer>()
         val prayer1 =Prayer()
+        prayer1.color =R.color.Onyx;
         prayer1.drawable =resources.getDrawable(R.drawable.card_bg_elfagr)
         prayer1.time ="4:30"
         prayer1.title =resources.getString(R.string.ElfgrPrayer)
         val prayer2 =Prayer()
+        prayer2.color =R.color.PersianPlum
         prayer2.drawable =resources.getDrawable(R.drawable.card_bg_eldoher)
         prayer2.time ="12:30"
         prayer2.title =resources.getString(R.string.ElTohrPrayer)
         val prayer3 =Prayer()
+        prayer3.color =R.color.Teal_blue
         prayer3.drawable =resources.getDrawable(R.drawable.card_bg_elasr)
         prayer3.time ="4:10"
         prayer3.title =resources.getString(R.string.ElAsrPrayer)
         val prayer4 =Prayer()
+        prayer4.color =R.color.SealBrown
         prayer4.drawable =resources.getDrawable(R.drawable.card_bg_elmagrb)
         prayer4.time ="6:30"
         prayer4.title =resources.getString(R.string.ElMagrbPrayer)
         val prayer5 =Prayer()
+        prayer5.color = R.color.MediumJungleGreen
         prayer5.drawable =resources.getDrawable(R.drawable.card_bg_elhasha)
         prayer5.time ="8:30"
         prayer5.title =resources.getString(R.string.ElHashaPrayer)
@@ -141,50 +152,50 @@ class HomeActivity : AppCompatActivity() {
         rakaat1.details.add(details1)
         rakaat1.details.add(details2)
         rakaat1.details.add(details3)
-        rakaat1.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat1.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaat1.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat1.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaat1.title ="الركعة 1";
+        rakaat1.title =resources.getString(R.string.raka_name) +"1"
         prayer2.rakaat.add(rakaat1)
         val rakaat2 =Rakaat()
         rakaat2.details.add(details1)
         rakaat2.details.add(details2)
         rakaat2.details.add(details3)
-        rakaat2.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat2.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
-        rakaat2.title ="الركعة 2";
+        rakaat2.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat2.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
+        rakaat2.title =resources.getString(R.string.raka_name) +"2"
         prayer2.rakaat.add(rakaat2)
         val rakaat3 =Rakaat()
         rakaat3.details.add(details1)
         rakaat3.details.add(details2)
         rakaat3.details.add(details3)
-        rakaat3.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaat3.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
-        rakaat3.title ="التشهد";
+        rakaat3.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaat3.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
+        rakaat3.title =resources.getString(R.string.tashud_name)
         prayer2.rakaat.add(rakaat3)
         val rakaat4 =Rakaat()
         rakaat4.details.add(details1)
         rakaat4.details.add(details2)
         rakaat4.details.add(details3)
-        rakaat4.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat4.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
-        rakaat4.title ="الركعة 3";
+        rakaat4.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat4.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
+        rakaat4.title =resources.getString(R.string.raka_name) +"3"
         prayer2.rakaat.add(rakaat4)
         val rakaat5 =Rakaat()
         rakaat5.details.add(details1)
         rakaat5.details.add(details2)
         rakaat5.details.add(details3)
-        rakaat5.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat5.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
-        rakaat5.title ="الركعة 4";
+        rakaat5.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat5.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
+        rakaat5.title =resources.getString(R.string.raka_name) +"4"
         prayer2.rakaat.add(rakaat5)
         val rakaat6 =Rakaat()
         rakaat6.details.add(details1)
         rakaat6.details.add(details2)
         rakaat6.details.add(details3)
-        rakaat6.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaat6.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
-        rakaat6.title ="التشهد";
+        rakaat6.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaat6.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
+        rakaat6.title =resources.getString(R.string.tashud_name)
         prayer2.rakaat.add(rakaat6)
 
 
@@ -194,55 +205,55 @@ class HomeActivity : AppCompatActivity() {
         rakaatEl3sr1.details.add(details1)
         rakaatEl3sr1.details.add(details2)
         rakaatEl3sr1.details.add(details3)
-        rakaatEl3sr1.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatEl3sr1.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatEl3sr1.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatEl3sr1.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatEl3sr1.title ="الركعة 1";
+        rakaatEl3sr1.title =resources.getString(R.string.raka_name) +"1"
         prayer3.rakaat.add(rakaatEl3sr1)
         val rakaatEl3sr2 =Rakaat()
         rakaatEl3sr2.details.add(details1)
         rakaatEl3sr2.details.add(details2)
         rakaatEl3sr2.details.add(details3)
-        rakaatEl3sr2.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatEl3sr2.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatEl3sr2.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatEl3sr2.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatEl3sr2.title ="الركعة 2";
+        rakaatEl3sr2.title =resources.getString(R.string.raka_name) +"2"
         prayer3.rakaat.add(rakaatEl3sr2)
         val rakaatEl3sr3 =Rakaat()
         rakaatEl3sr3.details.add(details1)
         rakaatEl3sr3.details.add(details2)
         rakaatEl3sr3.details.add(details3)
-        rakaatEl3sr3.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaatEl3sr3.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaatEl3sr3.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatEl3sr3.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatEl3sr3.title ="التشهد";
+        rakaatEl3sr3.title =resources.getString(R.string.tashud_name)
         prayer3.rakaat.add(rakaatEl3sr3)
         val rakaatEl3sr4 =Rakaat()
         rakaatEl3sr4.details.add(details1)
         rakaatEl3sr4.details.add(details2)
         rakaatEl3sr4.details.add(details3)
-        rakaatEl3sr4.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatEl3sr4.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatEl3sr4.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaatEl3sr4.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaatEl3sr4.title ="الركعة 3";
+        rakaatEl3sr4.title =resources.getString(R.string.raka_name) +"3"
         prayer3.rakaat.add(rakaatEl3sr4)
         val rakaatEl3sr5 =Rakaat()
         rakaatEl3sr5.details.add(details1)
         rakaatEl3sr5.details.add(details2)
         rakaatEl3sr5.details.add(details3)
-        rakaatEl3sr5.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatEl3sr5.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatEl3sr5.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatEl3sr5.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatEl3sr5.title ="الركعة 4";
+        rakaatEl3sr5.title =resources.getString(R.string.raka_name) +"4"
         prayer3.rakaat.add(rakaatEl3sr5)
         val rakaatEl3sr6 =Rakaat()
         rakaatEl3sr6.details.add(details1)
         rakaatEl3sr6.details.add(details2)
         rakaatEl3sr6.details.add(details3)
-        rakaatEl3sr6.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaatEl3sr6.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaatEl3sr6.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaatEl3sr6.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaatEl3sr6.title ="التشهد";
+        rakaatEl3sr6.title =resources.getString(R.string.tashud_name)
         prayer3.rakaat.add(rakaatEl3sr6)
 
 
@@ -251,37 +262,37 @@ class HomeActivity : AppCompatActivity() {
         rakaatm8rb1.details.add(details1)
         rakaatm8rb1.details.add(details2)
         rakaatm8rb1.details.add(details3)
-        rakaatm8rb1.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatm8rb1.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatm8rb1.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatm8rb1.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatm8rb1.title ="الركعة 1";
+        rakaatm8rb1.title =resources.getString(R.string.raka_name) +"1"
         prayer4.rakaat.add(rakaatm8rb1)
         val rakaatm8rb2 =Rakaat()
         rakaatm8rb2.details.add(details1)
         rakaatm8rb2.details.add(details2)
         rakaatm8rb2.details.add(details3)
-        rakaatm8rb2.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatm8rb2.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatm8rb2.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatm8rb2.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatm8rb2.title ="الركعة 2";
+        rakaatm8rb2.title =resources.getString(R.string.raka_name) +"2"
         prayer4.rakaat.add(rakaatm8rb2)
         val rakaatm8rb3 =Rakaat()
         rakaatm8rb3.details.add(details1)
         rakaatm8rb3.details.add(details2)
         rakaatm8rb3.details.add(details3)
-        rakaatm8rb3.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaatm8rb3.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaatm8rb3.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaatm8rb3.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaatm8rb3.title ="التشهد";
+        rakaatm8rb3.title =resources.getString(R.string.tashud_name)
         prayer4.rakaat.add(rakaatm8rb3)
         val rakaatm8rb4 =Rakaat()
         rakaatm8rb4.details.add(details1)
         rakaatm8rb4.details.add(details2)
         rakaatm8rb4.details.add(details3)
-        rakaatm8rb4.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaatm8rb4.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaatm8rb4.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaatm8rb4.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaatm8rb4.title ="التشهد";
+        rakaatm8rb4.title =resources.getString(R.string.tashud_name)
         prayer4.rakaat.add(rakaatm8rb4)
 
 
@@ -291,55 +302,55 @@ class HomeActivity : AppCompatActivity() {
         rakaat3asha21.details.add(details1)
         rakaat3asha21.details.add(details2)
         rakaat3asha21.details.add(details3)
-        rakaat3asha21.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat3asha21.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaat3asha21.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat3asha21.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaat3asha21.title ="الركعة 1";
+        rakaat3asha21.title =resources.getString(R.string.raka_name) +"1"
         prayer5.rakaat.add(rakaat3asha21)
         val rakaat3asha22 =Rakaat()
         rakaat3asha22.details.add(details1)
         rakaat3asha22.details.add(details2)
         rakaat3asha22.details.add(details3)
-        rakaat3asha22.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat3asha22.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaat3asha22.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat3asha22.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaat3asha22.title ="الركعة 2";
+        rakaat3asha22.title =resources.getString(R.string.raka_name) +"2"
         prayer5.rakaat.add(rakaat3asha22)
         val rakaat3asha23 =Rakaat()
         rakaat3asha23.details.add(details1)
         rakaat3asha23.details.add(details2)
         rakaat3asha23.details.add(details3)
-        rakaat3asha23.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaat3asha23.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaat3asha23.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaat3asha23.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaat3asha23.title ="التشهد";
+        rakaat3asha23.title =resources.getString(R.string.tashud_name)
         prayer5.rakaat.add(rakaat3asha23)
         val rakaat3asha24 =Rakaat()
         rakaat3asha24.details.add(details1)
         rakaat3asha24.details.add(details2)
         rakaat3asha24.details.add(details3)
-        rakaat3asha24.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat3asha24.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaat3asha24.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat3asha24.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaat3asha24.title ="الركعة 3";
+        rakaat3asha24.title =resources.getString(R.string.raka_name) +"3"
         prayer5.rakaat.add(rakaat3asha24)
         val rakaat3asha25 =Rakaat()
         rakaat3asha25.details.add(details1)
         rakaat3asha25.details.add(details2)
         rakaat3asha25.details.add(details3)
-        rakaat3asha25.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaat3asha25.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaat3asha25.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaat3asha25.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaat3asha25.title ="الركعة 4";
+        rakaat3asha25.title =resources.getString(R.string.raka_name) +"4"
         prayer5.rakaat.add(rakaat3asha25)
         val rakaat3asha26 =Rakaat()
         rakaat3asha26.details.add(details1)
         rakaat3asha26.details.add(details2)
         rakaat3asha26.details.add(details3)
-        rakaat3asha26.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaat3asha26.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaat3asha26.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaat3asha26.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaat3asha26.title ="التشهد";
+        rakaat3asha26.title =resources.getString(R.string.tashud_name)
         prayer5.rakaat.add(rakaat3asha26)
 
         // el fgr
@@ -347,27 +358,27 @@ class HomeActivity : AppCompatActivity() {
         rakaatfgr1.details.add(details1)
         rakaatfgr1.details.add(details2)
         rakaatfgr1.details.add(details3)
-        rakaatfgr1.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatfgr1.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
+        rakaatfgr1.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatfgr1.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
 
-        rakaatfgr1.title ="الركعة 1";
+        rakaatfgr1.title =resources.getString(R.string.raka_name) +"1"
         prayer1.rakaat.add(rakaatfgr1)
         val rakaatfgr2 =Rakaat()
         rakaatfgr2.details.add(details1)
         rakaatfgr2.details.add(details2)
         rakaatfgr2.details.add(details3)
-        rakaatfgr2.drawable = resources.getDrawable(R.drawable.icon_rakaa)
-        rakaatfgr2.selectedDrawable = resources.getDrawable(R.drawable.icon_rakaa_selected)
-        rakaatfgr2.title ="الركعة 2";
+        rakaatfgr2.drawable = resources.getDrawable(R.drawable.raka_black)
+        rakaatfgr2.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
+        rakaatfgr2.title =resources.getString(R.string.raka_name) +"2"
         prayer1.rakaat.add(rakaatfgr2)
         val rakaatfgr3 =Rakaat()
         rakaatfgr3.details.add(details1)
         rakaatfgr3.details.add(details2)
         rakaatfgr3.details.add(details3)
-        rakaatfgr3.drawable = resources.getDrawable(R.drawable.icon_tashahod)
-        rakaatfgr3.selectedDrawable = resources.getDrawable(R.drawable.icon_tashahod_selected)
+        rakaatfgr3.drawable = resources.getDrawable(R.drawable.tashud_black)
+        rakaatfgr3.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaatfgr3.title ="التشهد";
+        rakaatfgr3.title =resources.getString(R.string.tashud_name)
         prayer1.rakaat.add(rakaatfgr3)
 
 
