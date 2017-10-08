@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:gravity="center"
+            android:gravity="start|end"
             android:text="@string/app_about"
 
             android:textColor="@color/whiteColor"

@@ -29,4 +29,8 @@ class RakaaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         imageView.setImageDrawable(rakaat.drawable)
         title.text = rakaat.title
     }
+
+    public fun clearAnimation() {
+        itemView.clearAnimation()
+    }
 }

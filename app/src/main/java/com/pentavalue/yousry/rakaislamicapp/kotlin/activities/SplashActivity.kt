@@ -41,6 +41,7 @@ class SplashActivity : AppCompatActivity() {
         avi.setIndicator(Util.ANIMATION_LOADING);
     }
 
+
     var locationCheck :Boolean =false;
     var x = 0L
     override fun onResume() {
@@ -51,24 +52,13 @@ class SplashActivity : AppCompatActivity() {
 
             val intent = Intent(this, HomeActivity::class.java)
 
-            /*if(sharedPref != null && sharedPref!!.getBoolean(Util.CHECK_LOACTION,false)){
-                Handler().postDelayed({
-                    locationCheck =true
-                    Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
-                    startActivity(intent.putExtra("location",locationCheck))
-                    finish()
-                }, 5000)
-            }*/
             if(Util.isNetworkAvailable(this)){
                 getLocation()
             }else{
                 Toast.makeText(this, getString(R.string.no_internet_message), Toast.LENGTH_SHORT).show()
 
-                Handler().postDelayed({
-                    locationCheck =false
-                    startActivity(intent.putExtra("location",locationCheck))
-                    finish()
-                }, 5000)
+                onHandlerRunning(false)
+
             }
         }catch (e :KotlinNullPointerException){
             Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
@@ -80,10 +70,7 @@ class SplashActivity : AppCompatActivity() {
         if (requestCode == PERMISSIONS_REQUEST_ACCESS_LOCATION) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Permission is granted
-
                 runLocation()
-
-
             } else {
                 Toast.makeText(this, "Until you grant the permission, we canot take your location", Toast.LENGTH_SHORT).show();
                 val intent = Intent(this, HomeActivity::class.java)
@@ -103,7 +90,9 @@ class SplashActivity : AppCompatActivity() {
             //Toast.makeText(this, "This Version "+Build.VERSION.BASE_OS+" is not support", Toast.LENGTH_LONG).show()
             requestPermissions(arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION), PERMISSIONS_REQUEST_ACCESS_LOCATION);
         } else {
+            result =true
             runLocation()
+
         }
         return result
     }
@@ -126,16 +115,20 @@ class SplashActivity : AppCompatActivity() {
             editor.putString(Util.CITY_SHARED_PREFERENCE,nameOfCity)
             editor.putString(Util.COUNTRY_SHARED_PREFERENCE,nameOfCountry)
             editor.apply()
-            val intent = Intent(this, HomeActivity::class.java)
-            Handler().postDelayed({
-                Toast.makeText(this,"Done",Toast.LENGTH_LONG).show()
-                locationCheck =true
-                startActivity(intent.putExtra("location",locationCheck))
-                finish()
-            }, 5000)
+            onHandlerRunning(true)
         }catch (e: KotlinNullPointerException){
             Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
             locationCheck =false
         }
+    }
+
+    fun onHandlerRunning(a : Boolean){
+        Handler().postDelayed({
+            locationCheck =a
+            val intent = Intent(this, HomeActivity::class.java)
+
+            startActivity(intent.putExtra("location",locationCheck))
+            finish()
+        }, 5000)
     }
 }

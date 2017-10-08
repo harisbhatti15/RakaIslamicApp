@@ -37,4 +37,6 @@ class PrayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
     }
+
+
 }

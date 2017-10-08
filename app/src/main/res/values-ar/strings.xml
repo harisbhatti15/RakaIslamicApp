@@ -21,7 +21,10 @@
     <string name="detailMalki">المذهب المالكى</string>
     <string name="detailHanbali">المذهب الحنبلى</string>
     <string name="detailZahiri">المذهب الظاهري‎‎</string>
-    <string name="detailBody">إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط</string>
+    <string name="detailBody">إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط
+    إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط
+    إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط
+    إذا فاتتك ركعه واحدة فإن بعد سلام أمامك تأتى بركعة بالفاتحة فقط</string>
     <string name="app_about">عن التطبيق</string>
     <string name="app_share">مشاركة التطبيق</string>
     <string name="country_text_view">البلد</string>

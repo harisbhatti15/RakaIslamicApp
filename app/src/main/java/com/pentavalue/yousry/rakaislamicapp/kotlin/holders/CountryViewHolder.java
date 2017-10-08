@@ -39,6 +39,10 @@ public class CountryViewHolder extends RecyclerView.ViewHolder {
         photo = (ImageView) view.findViewById(R.id.image);
         photo.setVisibility(View.INVISIBLE);
         layout = (LinearLayout) view.findViewById(R.id.root);
+
+
+
+
     }
 
 }

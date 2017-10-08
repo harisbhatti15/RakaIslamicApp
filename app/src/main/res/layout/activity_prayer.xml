@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="start|end"
             android:textSize="20sp"
             android:text="@string/Gom3aPrayer"
             android:textColor="@color/whiteColor"/>
@@ -33,6 +33,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,7 +104,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="30dp"
+                android:layout_margin="25dp"
                 android:background="@color/whiteColor"
                 android:layout_below="@+id/recyclurPrayer"
                 android:orientation="vertical">

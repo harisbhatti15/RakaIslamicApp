@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:gravity="center"
+            android:gravity="start|end"
             android:text="@string/menu_toolbar"
 
             android:textColor="@color/whiteColor"
@@ -39,6 +39,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
             android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,21 +200,22 @@
                     android:layout_height="match_parent"
                     android:text="@string/country_text_view"
                     android:textSize="16sp"
-                    android:layout_weight="4"
+                    android:layout_weight="5"
                     android:layout_gravity="start|end"
                     android:gravity="start|end|center"
                     android:textColor="@color/colorDarkJungleGreen"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="5"
+                    android:layout_weight="4"
                     android:gravity="start|end|center"
                     android:textSize="13sp"
+                    android:drawablePadding="10dp"
                     android:id="@+id/text_location"
                     android:drawableEnd="@drawable/ic_right_arrow"
                     android:drawableRight="@drawable/ic_right_arrow"
                     android:textColor="@color/colorDarkJungleGreen"
-                    android:text=""
+                    android:text="@string/makka"
 
                     />
 

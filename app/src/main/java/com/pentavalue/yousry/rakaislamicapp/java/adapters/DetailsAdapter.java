@@ -25,12 +25,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailViewHolder> {
     public DetailsAdapter(List<Detail> details, Context context) {
         this.details = details;
         this.context = context;
-        new PrayerAdapter(null,null,new PrayerAdapter.OnItemClickedListener(){
-            @Override
-            public void onItemClicked(View view, Prayer prayer) {
 
-            }
-        });
     }
 
     @Override
