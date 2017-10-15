@@ -55,7 +55,7 @@ class HomeActivity : AppCompatActivity() {
                     dialog.show()
                 }
             }
-            country_prayers_view.text = getString(R.string.text_view_home_city) +" "+ sharedPref.getString(Util.CITY_SHARED_PREFERENCE,resources.getString(R.string.makka))
+            country_prayers_view.text = getString(R.string.text_view_home_city) +" "+ sharedPref.getString(Util.COUNTRY_SHARED_PREFERENCE,resources.getString(R.string.makka))
         }
 
 

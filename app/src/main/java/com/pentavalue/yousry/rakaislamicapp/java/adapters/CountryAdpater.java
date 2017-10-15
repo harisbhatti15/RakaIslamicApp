@@ -1,6 +1,9 @@
 package com.pentavalue.yousry.rakaislamicapp.java.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +13,10 @@ import android.widget.Toast;
 
 import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
+import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.CountryViewHolder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,13 +34,23 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
     static int lastPosition;
     static String selectedItem;
 
-    public CountryAdpater(List<String> countries, Context context) {
+
+
+    public CountryAdpater(List<String> countries, Context context,String country,int position, OnItemClickedListener listener) {
         this.context = context;
         this.countries = countries;
         holderList =new ArrayList<>();
+        this.listener =listener;
 
-        lastPosition =0;
-        selectedItem =countries.get(0);
+        if(!country.isEmpty() && position >-1){
+            lastPosition = position;
+            selectedItem =country;
+        }else{
+            lastPosition = 0;
+            selectedItem =countries.get(0);
+        }
+
+
     }
 
     @Override
@@ -52,6 +67,10 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
         holder.bind(item, context);
 
         holderList.add(holder);
+        if(lastPosition == position){
+            setSelectedItem(position);
+        }
+
         //lastViewHolder.photo.setVisibility(View.VISIBLE);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +83,8 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
                 lastPosition = position;
                 holderList.get(lastPosition).photo.setVisibility(View.VISIBLE);
                 selectedItem =countries.get(lastPosition);
+
+                listener.onItemClicked(view, countries.get(position), position);
             }
         });
     }
@@ -71,6 +92,23 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
     @Override
     public int getItemCount() {
         return this.countries.size();
+    }
+
+    public void setSelectedItem(int position){
+        holderList.get(position).photo.setVisibility(View.VISIBLE);
+        lastPosition =position;
+        selectedItem = countries.get(position);
+    }
+
+    public void setSelectedItem(){
+        holderList.get(0).photo.setVisibility(View.VISIBLE);
+        lastPosition =0;
+        selectedItem = countries.get(0);
+    }
+
+    private OnItemClickedListener listener;
+    public interface OnItemClickedListener{
+        void onItemClicked(View view, String country, int position);
     }
 
 }

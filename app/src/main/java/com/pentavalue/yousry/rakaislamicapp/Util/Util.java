@@ -12,8 +12,13 @@ public class Util {
     public static final String SHARED_KEY = "SALATY_PREF";
     public static final String ANIMATION_LOADING = "BallBeatIndicator";
 
+    public static final String MuslimAPI = "ede19e23a1786e52502fd47b43cc664f";
     public static final String CITY_SHARED_PREFERENCE = "city_pref_100";
     public static final String COUNTRY_SHARED_PREFERENCE = "country_pref_100";
+
+    public static final String CITY_EXTRA = "city_extra_100";
+    public static final String COUNTRY_EXTRA = "country_extra_100";
+    public static final String POSITION_COUNTRY_EXTRA = "position_extra_100";
 
     public static final String CHECK_LOACTION = "check_pref_100";
 

@@ -67,10 +67,12 @@ public class CustomDialog extends Dialog {
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, CountryActivity.class));
+                context.startActivity(new Intent(context, CountryActivity.class).putExtra("dialog",true));
+
                 dismiss();
             }
         });
+
 
 
     }

@@ -3,140 +3,21 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bg_white">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blackColor"
+    tools:context=".java.activities.TestActivity"
+    >
+
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/colorPaleBrown"
-        app:navigationIcon="@drawable/icons_menu_white">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:gravity="start|end"
-            android:text="@string/five_prayers_toolbar"
-
-            android:textColor="@color/whiteColor"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-    </android.support.v7.widget.Toolbar>
-    <android.support.design.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/my_toolbar"
-        >
-
-
-
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar_layout"
-
-            android:background="@null"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            android:fitsSystemWindows="true">
-
-            <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/collapsing_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-                app:contentScrim="?attr/colorButtonNormal"
-                app:expandedTitleMarginStart="48dp"
-                app:expandedTitleMarginEnd="64dp"
-                android:fitsSystemWindows="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_alignParentTop="true"
-                    android:id="@+id/tttt"
-                    android:orientation="vertical"
-                    android:gravity="start|end"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorDarkJungleGreen"
-                        android:textSize="16sp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="10dp"
-                        android:layout_marginRight="10dp"
-                        android:id="@+id/country_prayers_view"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="start|end"
-                        android:text="الصلوات بتوقيت مكة"
-                        android:layout_marginLeft="10dp" />
-                    <android.support.v7.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|end"
-                        android:id="@+id/recyclurPrayer"
-                        >
-                    </android.support.v7.widget.RecyclerView>
-
-                </LinearLayout>
-
-
-            </android.support.design.widget.CollapsingToolbarLayout>
-
-        </android.support.design.widget.AppBarLayout>
-
-
-        <android.support.v4.widget.NestedScrollView
-            android:id="@+id/scroll"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="30dp"
-                android:background="@color/whiteColor"
-                android:layout_below="@+id/tttt"
-                android:orientation="vertical">
-                <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/recyclurRakaat"
-                    >
-
-                </android.support.v7.widget.RecyclerView>
-
-                <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:verticalScrollbarPosition="defaultPosition"
-                    >
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/recyclurDetails"
-                        android:layout_marginTop="10dp"
-                        android:isScrollContainer="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                    </android.support.v7.widget.RecyclerView>
-                </ScrollView>
-
-            </LinearLayout>
-
-        </android.support.v4.widget.NestedScrollView>
-
-
-
-    </android.support.design.widget.CoordinatorLayout>
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/Teal_blue"
+        android:background="@color/whiteColor"
+        android:layout_margin="30dp"
+        android:text="Add Collection"
+        android:onClick="onAddCollectionClick"
+        />
 
 </RelativeLayout>
