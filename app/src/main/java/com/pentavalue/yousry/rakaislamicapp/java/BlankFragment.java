@@ -8,15 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.activities.CountryActivity;
 
 import java.util.Locale;
-import java.util.zip.Inflater;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +30,7 @@ public class BlankFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.test, container, false);
 
-        Button button =  view.findViewById(R.id.button1);
+        Button button = view.findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +49,7 @@ public class BlankFragment extends Fragment {
 
             }
         });
-        Button button1= view.findViewById(R.id.button2);
+        Button button1 = view.findViewById(R.id.button2);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,14 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.Point
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.LinearSnapHelper
 import android.util.Log
 import android.view.Gravity
-import android.widget.Toast
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import com.marcinorlowski.fonty.Fonty
 import com.pentavalue.yousry.rakaislamicapp.R
@@ -379,7 +377,6 @@ class HomeActivity : AppCompatActivity() {
         prayer1.rakaat.add(rakaatfgr3)
 
 
-
         //prayers.add(emptyPrayer)
         prayers.add(prayer1)
         prayers.add(prayer2)
@@ -391,11 +388,10 @@ class HomeActivity : AppCompatActivity() {
         return prayers
     }
 
-    var lastPosition =0
+    var lastPosition = 0
     fun drawRecyclurViewPrayers() {
         var snapHelperCenter = LinearSnapHelper()
         var snapHelperStart = GravitySnapHelper(Gravity.START)
-
 
 
         val llm = LinearLayoutManager(this,
@@ -407,43 +403,42 @@ class HomeActivity : AppCompatActivity() {
                 PrayerAdapter.OnItemClickedListener { view, prayer, position ->
 
 
-                    if(position == 0){
+                    if (position == 0) {
 
                         recyclurPrayer.smoothScrollToPosition(position);
                     }
-                    if(position == 1){
-                        if(position > lastPosition){
+                    if (position == 1) {
+                        if (position > lastPosition) {
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
                             recyclurPrayer.smoothScrollToPosition(position);
-                        }else{
+                        } else {
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
-                            recyclurPrayer.smoothScrollToPosition(position-1);
+                            recyclurPrayer.smoothScrollToPosition(position - 1);
                         }
 
-                    }else if(position == 2){
-                        if(position > lastPosition){
+                    } else if (position == 2) {
+                        if (position > lastPosition) {
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
 
-                            recyclurPrayer.smoothScrollToPosition(position+1);
-                        }else{
+                            recyclurPrayer.smoothScrollToPosition(position + 1);
+                        } else {
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
 
-                            recyclurPrayer.smoothScrollToPosition(position-1);
+                            recyclurPrayer.smoothScrollToPosition(position - 1);
                         }
 
-                    }else if(position ==3){
-                        if(position > lastPosition){
+                    } else if (position == 3) {
+                        if (position > lastPosition) {
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
 
-                            recyclurPrayer.smoothScrollToPosition(position+1);
-                        }else{
+                            recyclurPrayer.smoothScrollToPosition(position + 1);
+                        } else {
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
 
-                            recyclurPrayer.smoothScrollToPosition(position-1);
+                            recyclurPrayer.smoothScrollToPosition(position - 1);
                         }
 
-                    }
-                    else if(position == 4){
+                    } else if (position == 4) {
 
                         recyclurPrayer.smoothScrollToPosition(position);
 
@@ -453,9 +448,9 @@ class HomeActivity : AppCompatActivity() {
                     //adapterRakaat!!.rakaats.clear()
                     adapterRakaat = RakaatAdapter(prayer.rakaat, this,
                             RakaatAdapter.OnItemClickedListener { view, rakaat, oldView ->
-/*
-                                Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
-*/
+                                /*
+                                                                Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
+                                */
                             })
 
                     recyclurRakaat.adapter = adapterRakaat

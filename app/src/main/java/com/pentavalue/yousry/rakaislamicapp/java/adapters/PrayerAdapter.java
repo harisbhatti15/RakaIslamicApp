@@ -42,9 +42,9 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder> {
 
         holder.bind(prayers.get(position), context);
 
-        if(prayers.get(position).getRakaat().size()== 0){
+        if (prayers.get(position).getRakaat().size() == 0) {
 
-        }else{
+        } else {
             holder.getCardView().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
