@@ -31,6 +31,12 @@ class PrayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun bind(prayer: Prayer, context: Context) {
+
+        if (prayer.getRakaat() == null || prayer.getRakaat().size == 0) {
+            nameView.text = ""
+            timeView.text = ""
+            //root.setBackgroundDrawable(prayer.drawable)
+        }
         nameView.text = prayer.title
         timeView.text = prayer.time
         root.setBackgroundDrawable(prayer.drawable)

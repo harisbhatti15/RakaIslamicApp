@@ -44,10 +44,10 @@ public class CustomDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.dialog_cusotm_layout);
+        setContentView(R.layout.test);
 
 
-        cancelButton = findViewById(R.id.button_cancel);
+      /*  cancelButton = findViewById(R.id.button_cancel);
         changeButton = findViewById(R.id.button_change);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +65,7 @@ public class CustomDialog extends Dialog {
                 dismiss();
             }
         });
-
+*/
 
     }
 

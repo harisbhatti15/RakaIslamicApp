@@ -51,7 +51,7 @@ class SplashActivity : AppCompatActivity() {
 
             }
         } catch (e: KotlinNullPointerException) {
-            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
             locationCheck = false
         }
     }
@@ -96,9 +96,7 @@ class SplashActivity : AppCompatActivity() {
             val addresses = gcd.getFromLocation(location!!.latitude, location?.longitude, 1)
             val nameOfCity: String = addresses[0].adminArea
             val nameOfCountry: String = addresses[0].countryName
-            Toast.makeText(this,
-                    """City is $nameOfCity Country is $nameOfCountry""",
-                    Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, """City is $nameOfCity Country is $nameOfCountry""", Toast.LENGTH_LONG).show()
             val preferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
             locationCheck = true
             val editor = preferences.edit()
@@ -108,7 +106,7 @@ class SplashActivity : AppCompatActivity() {
             editor.apply()
             onHandlerRunning(true)
         } catch (e: KotlinNullPointerException) {
-            Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
             locationCheck = false
             onHandlerRunning(false)
         }

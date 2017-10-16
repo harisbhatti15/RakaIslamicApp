@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Point
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.LinearSnapHelper
 import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper
 import com.marcinorlowski.fonty.Fonty
 import com.pentavalue.yousry.rakaislamicapp.R
 import com.pentavalue.yousry.rakaislamicapp.Util.Util
+import com.pentavalue.yousry.rakaislamicapp.java.BlankFragment
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.DetailsAdapter
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.PrayerAdapter
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.RakaatAdapter
@@ -44,14 +47,17 @@ class HomeActivity : AppCompatActivity() {
             // Shared Pref contain False Value for loaction
             val dialog = CustomDialog(this)
             Log.v("tag", "shared is false")
-            dialog.show()
+            //dialog.show()
+            supportFragmentManager.beginTransaction().add(R.id.container, BlankFragment()).commit()
         } else {
             // Close Dialog
             if (intent.hasExtra("location")) {
                 if (!intent.getBooleanExtra("location", false)) {
                     val dialog = CustomDialog(this)
                     Log.v("tag", "intent is false")
-                    dialog.show()
+                    //dialog.show()
+                    supportFragmentManager.beginTransaction().add(R.id.container, BlankFragment()).commit()
+
                 }
             }
             country_prayers_view.text = getString(R.string.text_view_home_city) + " " + sharedPref.getString(Util.COUNTRY_SHARED_PREFERENCE, resources.getString(R.string.makka))
@@ -75,17 +81,7 @@ class HomeActivity : AppCompatActivity() {
         title = resources.getString(R.string.five_prayers_toolbar)
 
 
-        // Configure the refreshing colors
-        /*swipeLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light,
-                android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
 
-
-        swipeLayout.setOnRefreshListener {
-            drawRecyclurViewPrayers()
-            swipeLayout.isRefreshing = false
-        }*/
 
         drawRecyclurViewPrayers()
 
@@ -93,7 +89,7 @@ class HomeActivity : AppCompatActivity() {
         //recyclurPrayer.setOnFlingListener(snapHelperStart)
         adapterRakaat = RakaatAdapter(prayers!!.get(0).rakaat, this,
                 RakaatAdapter.OnItemClickedListener { view, rakaat, oldView ->
-                    Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
                     val adapterDetails = DetailsAdapter(rakaat.details, this);
                     recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                             LinearLayoutManager.VERTICAL, true))
@@ -106,7 +102,7 @@ class HomeActivity : AppCompatActivity() {
         recyclurRakaat.adapter = adapterRakaat
 
 
-        val adapterDetails = DetailsAdapter(prayers!!.get(0).rakaat.get(0).details, this);
+        val adapterDetails = DetailsAdapter(prayers!!.get(1).rakaat.get(0).details, this);
         recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, true))
         recyclurDetails.adapter = adapterDetails
@@ -115,6 +111,7 @@ class HomeActivity : AppCompatActivity() {
 
     fun getPrayers(): List<Prayer> {
         val prayers = ArrayList<Prayer>()
+        val emptyPrayer = Prayer()
         val prayer1 = Prayer()
         prayer1.color = R.color.Onyx;
         prayer1.drawable = resources.getDrawable(R.drawable.card_bg_elfagr)
@@ -383,39 +380,90 @@ class HomeActivity : AppCompatActivity() {
 
 
 
+        //prayers.add(emptyPrayer)
         prayers.add(prayer1)
         prayers.add(prayer2)
         prayers.add(prayer3)
         prayers.add(prayer4)
         prayers.add(prayer5)
-
+        //prayers.add(emptyPrayer)
 
         return prayers
     }
 
+    var lastPosition =0
     fun drawRecyclurViewPrayers() {
+        var snapHelperCenter = LinearSnapHelper()
+        var snapHelperStart = GravitySnapHelper(Gravity.START)
+
+
 
         val llm = LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false)
 
+        //snapHelperStart.enableLastItemSnap(false)
         llm.stackFromEnd = false
         val adapter = PrayerAdapter(this, prayers,
                 PrayerAdapter.OnItemClickedListener { view, prayer, position ->
-                    Toast.makeText(this, prayer.title, Toast.LENGTH_LONG).show()
+
+
+                    if(position == 0){
+
+                        recyclurPrayer.smoothScrollToPosition(position);
+                    }
+                    if(position == 1){
+                        if(position > lastPosition){
+                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+                            recyclurPrayer.smoothScrollToPosition(position);
+                        }else{
+                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+                            recyclurPrayer.smoothScrollToPosition(position-1);
+                        }
+
+                    }else if(position == 2){
+                        if(position > lastPosition){
+                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+
+                            recyclurPrayer.smoothScrollToPosition(position+1);
+                        }else{
+                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+
+                            recyclurPrayer.smoothScrollToPosition(position-1);
+                        }
+
+                    }else if(position ==3){
+                        if(position > lastPosition){
+                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+
+                            recyclurPrayer.smoothScrollToPosition(position+1);
+                        }else{
+                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+
+                            recyclurPrayer.smoothScrollToPosition(position-1);
+                        }
+
+                    }
+                    else if(position == 4){
+
+                        recyclurPrayer.smoothScrollToPosition(position);
+
+                        //snapHelperStart.attachToRecyclerView(recyclurPrayer)
+                    }
+                    lastPosition = position
                     //adapterRakaat!!.rakaats.clear()
                     adapterRakaat = RakaatAdapter(prayer.rakaat, this,
                             RakaatAdapter.OnItemClickedListener { view, rakaat, oldView ->
+/*
                                 Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
-
+*/
                             })
-                    recyclurPrayer.scrollToPosition(position)
-                    recyclurRakaat.adapter = adapterRakaat
 
+                    recyclurRakaat.adapter = adapterRakaat
                 })
         recyclurPrayer.setLayoutManager(llm)
 
-        val snapHelperStart = GravitySnapHelper(Gravity.START)
-        snapHelperStart.attachToRecyclerView(recyclurPrayer)
+
+
         recyclurPrayer.adapter = adapter
     }
 

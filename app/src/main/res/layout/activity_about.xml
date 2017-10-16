@@ -69,12 +69,14 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView2"
-                android:layout_marginTop="73dp"
+
+                android:layout_marginTop="90dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="@string/app_about_details"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
-                android:textColor="@color/colorDimGray" />
+                android:textColor="@color/colorDimGray"
+                tools:ignore="NotSibling" />
 
             <TextView
                 android:id="@+id/textView4"

@@ -27,6 +27,7 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder> {
         this.listener = listener;
         this.context = context;
         this.prayers = prayers;
+
     }
 
     @Override
@@ -38,16 +39,27 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder> {
 
     @Override
     public void onBindViewHolder(PrayerViewHolder holder, final int position) {
+
         holder.bind(prayers.get(position), context);
-        holder.getCardView().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onItemClicked(view, prayers.get(position), position);
-            }
-        });
-        holder.getContainer().setBackgroundColor(context.getResources().getColor(prayers.get(position).getColor()));
+
+        if(prayers.get(position).getRakaat().size()== 0){
+
+        }else{
+            holder.getCardView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClicked(view, prayers.get(position), position);
+                }
+            });
+            holder.getContainer().setBackgroundColor(context.getResources().getColor(prayers.get(position).getColor()));
+        }
 
 
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
     }
 
     @Override
