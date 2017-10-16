@@ -47,7 +47,6 @@ class SplashActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         try {
-
             val sharedPref :SharedPreferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
 
             val intent = Intent(this, HomeActivity::class.java)
@@ -119,6 +118,7 @@ class SplashActivity : AppCompatActivity() {
         }catch (e: KotlinNullPointerException){
             Toast.makeText(this,e.message,Toast.LENGTH_LONG).show()
             locationCheck =false
+            onHandlerRunning(false)
         }
     }
 
