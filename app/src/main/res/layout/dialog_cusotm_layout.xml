@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="280dp"
+    android:layout_gravity="center"
 
     android:background="@drawable/bg_white"
-    android:layout_gravity="center"
+    android:orientation="vertical"
 
 
     >
@@ -12,70 +13,71 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@null"
         android:layout_gravity="center"
-        android:src="@drawable/circle_world_icon"/>
+        android:background="@null"
+        android:src="@drawable/circle_world_icon" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="16sp"
+            android:layout_weight="2"
             android:gravity="center"
             android:padding="5dp"
-            android:textColor="@color/blackColor"
             android:text="@string/textview_dialog"
-            android:layout_weight="2"/>
+            android:textColor="@color/blackColor"
+            android:textSize="16sp" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="14sp"
+            android:layout_weight="4"
             android:gravity="center|top"
             android:padding="5dp"
             android:text="@string/textview_dialog_choose"
             android:textColor="@color/very_dark_gray"
-            android:layout_weight="4"/>
+            android:textSize="14sp" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_weight="4"
             android:background="@color/whiteColor"
-            android:weightSum="1"
-            android:layout_weight="4">
+            android:orientation="horizontal"
+            android:weightSum="1">
+
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:id="@+id/button_change"
-                android:background="@color/colorPaleBrown"
-                android:layout_weight="0.48"
-                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="start|end"
-                android:textColor="@color/whiteColor"
+                android:layout_weight="0.48"
+                android:background="@color/colorPaleBrown"
                 android:text="@string/button_dialog_change_country"
-                />
+                android:textColor="@color/whiteColor"
+                android:textSize="16sp" />
 
 
             <Button
+                android:id="@+id/button_cancel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/button_cancel"
+                android:layout_gravity="start|end"
+                android:layout_weight="0.48"
                 android:background="@color/colorPaleBrown"
                 android:gravity="center"
-                android:textSize="16sp"
-                android:textColor="@color/whiteColor"
-                android:layout_gravity="start|end"
                 android:text="@string/button_dialog_cancel"
-                android:layout_weight="0.48"
-                />
+                android:textColor="@color/whiteColor"
+                android:textSize="16sp" />
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </LinearLayout>

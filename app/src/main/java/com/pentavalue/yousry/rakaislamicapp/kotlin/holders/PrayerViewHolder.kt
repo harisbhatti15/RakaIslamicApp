@@ -11,7 +11,6 @@ import com.pentavalue.yousry.rakaislamicapp.R
 import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer
 
 
-
 /**
  * Created by yousry on 10/2/2017.
  */
@@ -21,7 +20,7 @@ class PrayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     internal var nameView: TextView
     internal var timeView: TextView
     internal var root: RelativeLayout
-    public var container :LinearLayout
+    public var container: LinearLayout
 
     init {
         cardView = itemView.findViewById(R.id.card_view_item)
@@ -30,6 +29,7 @@ class PrayerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         timeView = itemView.findViewById(R.id.timeView)
         container = itemView.findViewById(R.id.container)
     }
+
     fun bind(prayer: Prayer, context: Context) {
         nameView.text = prayer.title
         timeView.text = prayer.time

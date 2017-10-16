@@ -11,11 +11,8 @@ import android.view.animation.AnimationUtils;
 
 import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
-import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer;
-import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.RakaaViewHolder;
 import com.pentavalue.yousry.rakaislamicapp.java.models.Rakaat;
-
-import org.intellij.lang.annotations.Language;
+import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.RakaaViewHolder;
 
 import java.util.List;
 import java.util.Locale;
@@ -28,31 +25,33 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
     List<Rakaat> rakaats;
     Context context;
 
-    long delayAnimate =500;
+    long delayAnimate = 500;
     RakaaViewHolder lastView;
-    Rakaat lastItemModel =new Rakaat();
+    Rakaat lastItemModel = new Rakaat();
 
     private int lastPosition = -1;
+    private OnItemClickedListener listener;
+
     public RakaatAdapter(List<Rakaat> rakaats, Context context) {
         this.rakaats = rakaats;
         this.context = context;
-        this.listener =null;
+        this.listener = null;
     }
 
     public RakaatAdapter(List<Rakaat> rakaats, Context context, OnItemClickedListener listener) {
-        this.listener =listener;
+        this.listener = listener;
         this.rakaats = rakaats;
         this.context = context;
     }
 
     @Override
     public RakaaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rakaa_home,parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rakaa_home, parent, false);
 
         if (Locale.getDefault().getDisplayLanguage().equals("English") ||
                 Locale.getDefault().getDisplayLanguage().equals("english") ||
-                Locale.getDefault().getDisplayLanguage().equals("en")){
-        }else{
+                Locale.getDefault().getDisplayLanguage().equals("en")) {
+        } else {
             Fonty.setFonts((ViewGroup) view);
         }
 
@@ -62,7 +61,7 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
     @Override
     public void onBindViewHolder(final RakaaViewHolder holder, final int position) {
         holder.bind(rakaats.get(position));
-        if(lastView == null){
+        if (lastView == null) {
             lastView = holder;
             lastItemModel = rakaats.get(position);
             lastView.getIndicator().setBackgroundColor(context.getResources().getColor(R.color.colorPaleBrown));
@@ -73,10 +72,10 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
 
         if (Locale.getDefault().getDisplayLanguage().equals("English") ||
                 Locale.getDefault().getDisplayLanguage().equals("english") ||
-                Locale.getDefault().getDisplayLanguage().equals("en")){
+                Locale.getDefault().getDisplayLanguage().equals("en")) {
             // Here you apply the animation when the view is bound
             setAnimation(holder.itemView, position, R.anim.anim_slide_in_left);
-        }else{
+        } else {
             // Here you apply the animation when the view is bound
             setAnimation(holder.itemView, position, R.anim.anim_slide_in_right);
         }
@@ -86,11 +85,11 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
             public void onClick(View view) {
                 lastView.getImageView().setImageDrawable(lastItemModel.getDrawable());
                 lastView.getIndicator().setBackgroundColor(context.getResources().getColor(R.color.colorPlatinum));
-                lastView =holder;
-                lastItemModel =rakaats.get(position);
+                lastView = holder;
+                lastItemModel = rakaats.get(position);
                 lastView.getIndicator().setBackgroundColor(context.getResources().getColor(R.color.colorPaleBrown));
                 lastView.getImageView().setImageDrawable(rakaats.get(position).getSelectedDrawable());
-                listener.onItemClicked(view,rakaats.get(position), lastView);
+                listener.onItemClicked(view, rakaats.get(position), lastView);
             }
         });
     }
@@ -98,11 +97,6 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
     @Override
     public int getItemCount() {
         return rakaats.size();
-    }
-
-    private OnItemClickedListener listener;
-    public interface OnItemClickedListener{
-        void onItemClicked(View view, Rakaat rakaat, RakaaViewHolder oldView);
     }
 
     public List<Rakaat> getRakaats() {
@@ -114,29 +108,28 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
         lastView.getImageView().setImageDrawable(lastItemModel.getDrawable());
         lastView.getIndicator().setBackgroundColor(context.getResources().getColor(R.color.colorPlatinum));
 
-        lastView =null;
-        lastItemModel =this.rakaats.get(0);
+        lastView = null;
+        lastItemModel = this.rakaats.get(0);
         notifyDataSetChanged();
     }
+
     /**
      * Here is the key method to apply the animation
      */
-    private void setAnimation(final View viewToAnimate, int position, final int id)
-    {
+    private void setAnimation(final View viewToAnimate, int position, final int id) {
         // If the bound view wasn't previously displayed on screen, it's animated
-        if (position > lastPosition)
-        {
+        if (position > lastPosition) {
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 public void run() {
                     Animation animation = AnimationUtils.loadAnimation(context, id);
-                    if(viewToAnimate!=null){
+                    if (viewToAnimate != null) {
                         viewToAnimate.startAnimation(animation);
                         viewToAnimate.setVisibility(View.VISIBLE);
                     }
                 }
             }, delayAnimate);
-            delayAnimate +=300;
+            delayAnimate += 300;
             /*viewToAnimate.setVisibility(View.VISIBLE);
             Animation animation = AnimationUtils.loadAnimation(context, id);
             animation.setDuration(delayAnimate);
@@ -147,9 +140,14 @@ public class RakaatAdapter extends RecyclerView.Adapter<RakaaViewHolder> {
             delayAnimate +=5000;*/
         }
     }
+
     @Override
     public void onViewDetachedFromWindow(RakaaViewHolder holder) {
         super.onViewDetachedFromWindow(holder);
         holder.clearAnimation();
+    }
+
+    public interface OnItemClickedListener {
+        void onItemClicked(View view, Rakaat rakaat, RakaaViewHolder oldView);
     }
 }

@@ -22,7 +22,7 @@ public class Prayer {
         this.title = "";
         this.time = "";
         this.drawable = null;
-        color =0;
+        color = 0;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Prayer {
         this.time = time;
         this.drawable = null;
         this.rakaat = rakaat;
-        this.color =0;
+        this.color = 0;
     }
 
 

@@ -23,8 +23,6 @@ public class Util {
     public static final String CHECK_LOACTION = "check_pref_100";
 
 
-
-
     //Checking Network Connection
 
     public static boolean isNetworkAvailable(Context context) {
@@ -33,8 +31,7 @@ public class Util {
         NetworkInfo networkInfo = manager.getActiveNetworkInfo();
 
         boolean isAvailable = false;
-        if (networkInfo != null && networkInfo.isConnected())
-        {
+        if (networkInfo != null && networkInfo.isConnected()) {
             isAvailable = true;
 
         }

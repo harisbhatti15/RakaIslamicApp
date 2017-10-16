@@ -7,17 +7,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
 import com.pentavalue.yousry.rakaislamicapp.kotlin.activities.CountryActivity;
-import com.pentavalue.yousry.rakaislamicapp.kotlin.activities.HomeActivity;
-
-import java.util.Locale;
 
 
 /**
@@ -25,27 +19,26 @@ import java.util.Locale;
  */
 
 public class CustomDialog extends Dialog {
+    private static final String TAG = CustomDialog.class.getSimpleName();
+    static int x = 0;
     Context context;
-    private static final String TAG =CustomDialog.class.getSimpleName();
-
     Button cancelButton;
     Button changeButton;
 
     public CustomDialog(@NonNull Context context) {
         super(context);
-        this.context =context;
+        this.context = context;
     }
 
     public CustomDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
-        this.context =context;
+        this.context = context;
     }
 
     protected CustomDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
-        this.context =context;
+        this.context = context;
     }
-    static int x =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +47,8 @@ public class CustomDialog extends Dialog {
         setContentView(R.layout.dialog_cusotm_layout);
 
 
-        cancelButton =findViewById(R.id.button_cancel);
-        changeButton =findViewById(R.id.button_change);
+        cancelButton = findViewById(R.id.button_cancel);
+        changeButton = findViewById(R.id.button_change);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,12 +60,11 @@ public class CustomDialog extends Dialog {
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, CountryActivity.class).putExtra("dialog",true));
+                context.startActivity(new Intent(context, CountryActivity.class).putExtra("dialog", true));
 
                 dismiss();
             }
         });
-
 
 
     }

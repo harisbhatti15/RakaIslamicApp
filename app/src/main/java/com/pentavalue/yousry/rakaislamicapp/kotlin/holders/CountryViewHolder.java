@@ -16,15 +16,12 @@ import com.pentavalue.yousry.rakaislamicapp.R;
 
 public class CountryViewHolder extends RecyclerView.ViewHolder {
 
-    public static final String TAG =CountryViewHolder.class.getSimpleName();
-
+    public static final String TAG = CountryViewHolder.class.getSimpleName();
+    public LinearLayout layout;
+    public ImageView photo;
     private Context context;
     private View view;
-    public LinearLayout layout;
     private TextView name;
-    public ImageView photo;
-
-
 
 
     public CountryViewHolder(View itemView) {
@@ -33,14 +30,12 @@ public class CountryViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(final String nameOfCountry, final Context context) {
-        this.context =context;
+        this.context = context;
         name = (TextView) view.findViewById(R.id.name);
         name.setText(nameOfCountry);
         photo = (ImageView) view.findViewById(R.id.image);
         photo.setVisibility(View.INVISIBLE);
         layout = (LinearLayout) view.findViewById(R.id.root);
-
-
 
 
     }

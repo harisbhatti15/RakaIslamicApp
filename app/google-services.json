@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "315874607795",
+    "firebase_url": "https://rak-a-d2f4c.firebaseio.com",
+    "project_id": "rak-a-d2f4c",
+    "storage_bucket": "rak-a-d2f4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315874607795:android:c7ce665b71d0a5da",
+        "android_client_info": {
+          "package_name": "com.pentavalue.yousry.rakaislamicapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315874607795-sh8a84b6vccqijnbvmj1rr1rb3pl3j7b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pentavalue.yousry.rakaislamicapp",
+            "certificate_hash": "25a27527ef0057cd962a761d7f82c55755b3a7f3"
+          }
+        },
+        {
+          "client_id": "315874607795-0dscgburiudf79bd1pib8pb4ns0v8ukd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNbYkgnSIHoGlkc1godGkGWoWww4wcS1g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315874607795-0dscgburiudf79bd1pib8pb4ns0v8ukd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

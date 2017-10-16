@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
-    android:layout_marginEnd="20dp">
+    android:layout_marginStart="20dp"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TEST"
         android:id="@+id/detailTitle"
-        android:layout_gravity="start|end"
-        android:textColor="@color/colorGold"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        />
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="test"
-        android:id="@+id/detailBody"
-        android:layout_marginTop="2dp"
         android:layout_gravity="start|end"
-        android:textColor="@color/blackColor"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-        android:textStyle="normal"
+        android:text="TEST"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorGold"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/detailBody"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|end"
         android:layout_marginBottom="15dp"
-        />
+        android:layout_marginTop="2dp"
+        android:text="test"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+        android:textColor="@color/blackColor"
+        android:textStyle="normal" />
 
 </LinearLayout>

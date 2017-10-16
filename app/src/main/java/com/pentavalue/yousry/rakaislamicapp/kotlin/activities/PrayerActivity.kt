@@ -1,7 +1,7 @@
 package com.pentavalue.yousry.rakaislamicapp.kotlin.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.widget.Toast
 import com.marcinorlowski.fonty.Fonty
@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_prayer.*
 
 class PrayerActivity : AppCompatActivity() {
 
-    var adapterRakaat : RakaatAdapter? = null
+    var adapterRakaat: RakaatAdapter? = null
     private var prayer: Prayer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,29 +26,30 @@ class PrayerActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         supportActionBar?.setHomeButtonEnabled(true)
 
-        prayer =getPrayer()
+        prayer = getPrayer()
 
 
         adapterRakaat = RakaatAdapter(prayer!!.rakaat, this,
-                RakaatAdapter.OnItemClickedListener{view, rakaat, oldView ->
-                    Toast.makeText(this,rakaat.title, Toast.LENGTH_LONG).show()
+                RakaatAdapter.OnItemClickedListener { view, rakaat, oldView ->
+                    Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
 
                     val adapter = DetailsAdapter(rakaat.details, this);
                     recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                             LinearLayoutManager.VERTICAL, true))
-                    recyclurDetails.adapter =adapter
+                    recyclurDetails.adapter = adapter
                 })
         recyclurRakaat.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false))
 
-        recyclurRakaat.adapter =adapterRakaat
+        recyclurRakaat.adapter = adapterRakaat
 
 
         val adapterDetails = DetailsAdapter(prayer!!.rakaat.get(0).details, this);
         recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, true))
-        recyclurDetails.adapter =adapterDetails
+        recyclurDetails.adapter = adapterDetails
     }
+
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
@@ -59,15 +60,15 @@ class PrayerActivity : AppCompatActivity() {
         return true
     }
 
-    fun getPrayer(): Prayer{
-        val prayer =Prayer()
-        prayer.drawable =resources.getDrawable(R.drawable.card_bg_eldoher)
-        prayer.time ="12:30"
-        prayer.title =resources.getString(R.string.Gom3aPrayer)
+    fun getPrayer(): Prayer {
+        val prayer = Prayer()
+        prayer.drawable = resources.getDrawable(R.drawable.card_bg_eldoher)
+        prayer.time = "12:30"
+        prayer.title = resources.getString(R.string.Gom3aPrayer)
 
-        val details1 = Detail(resources.getString(R.string.detailHanfi),resources.getString(R.string.detailBody))
-        val details2 = Detail(resources.getString(R.string.detailMalki),resources.getString(R.string.detailBody))
-        val details3 = Detail(resources.getString(R.string.detailShaf3y),resources.getString(R.string.detailBody))
+        val details1 = Detail(resources.getString(R.string.detailHanfi), resources.getString(R.string.detailBody))
+        val details2 = Detail(resources.getString(R.string.detailMalki), resources.getString(R.string.detailBody))
+        val details3 = Detail(resources.getString(R.string.detailShaf3y), resources.getString(R.string.detailBody))
 
         // el fgr
         val rakaatfgr1 = Rakaat()
@@ -76,7 +77,7 @@ class PrayerActivity : AppCompatActivity() {
         rakaatfgr1.details.add(details3)
         rakaatfgr1.drawable = resources.getDrawable(R.drawable.raka_black)
         rakaatfgr1.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
-        rakaatfgr1.title =resources.getString(R.string.raka_name) +"1"
+        rakaatfgr1.title = resources.getString(R.string.raka_name) + "1"
         prayer.rakaat.add(rakaatfgr1)
 
         val rakaatfgr2 = Rakaat()
@@ -86,7 +87,7 @@ class PrayerActivity : AppCompatActivity() {
         rakaatfgr2.details.add(details3)
         rakaatfgr2.drawable = resources.getDrawable(R.drawable.raka_black)
         rakaatfgr2.selectedDrawable = resources.getDrawable(R.drawable.raka_color)
-        rakaatfgr2.title =resources.getString(R.string.raka_name) +"2"
+        rakaatfgr2.title = resources.getString(R.string.raka_name) + "2"
         prayer.rakaat.add(rakaatfgr2)
 
         val rakaatfgr3 = Rakaat()
@@ -99,7 +100,7 @@ class PrayerActivity : AppCompatActivity() {
         rakaatfgr3.drawable = resources.getDrawable(R.drawable.tashud_black)
         rakaatfgr3.selectedDrawable = resources.getDrawable(R.drawable.tashud_color)
 
-        rakaatfgr3.title =resources.getString(R.string.tashud_name)
+        rakaatfgr3.title = resources.getString(R.string.tashud_name)
         prayer.rakaat.add(rakaatfgr3)
 
         return prayer

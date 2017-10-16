@@ -31,7 +31,7 @@ public class Rakaat {
         this.title = title;
         this.details = details;
         this.drawable = null;
-        this.selectedDrawable =null;
+        this.selectedDrawable = null;
     }
 
     public Drawable getSelectedDrawable() {

@@ -5,29 +5,26 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 
 import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
-import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.PrayerViewHolder;
 import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer;
+import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.PrayerViewHolder;
 
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by yousry on 10/2/2017.
  */
 
-public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder>{
+public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder> {
 
     Context context;
     List<Prayer> prayers;
-
+    private OnItemClickedListener listener;
 
     public PrayerAdapter(Context context, List<Prayer> prayers, OnItemClickedListener listener) {
-        this.listener =listener;
+        this.listener = listener;
         this.context = context;
         this.prayers = prayers;
     }
@@ -51,7 +48,6 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder>{
         holder.getContainer().setBackgroundColor(context.getResources().getColor(prayers.get(position).getColor()));
 
 
-
     }
 
     @Override
@@ -59,13 +55,9 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder>{
         return prayers.size();
     }
 
-    private OnItemClickedListener listener;
-    public interface OnItemClickedListener{
+    public interface OnItemClickedListener {
         void onItemClicked(View view, Prayer prayer, int position);
     }
-
-
-
 
 
 }

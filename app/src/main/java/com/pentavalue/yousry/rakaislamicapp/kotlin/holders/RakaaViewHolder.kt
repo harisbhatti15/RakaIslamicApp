@@ -16,12 +16,12 @@ class RakaaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     public var view: View? = null
     public var imageView: ImageView
     public var title: TextView
-    public var indicator : View
+    public var indicator: View
 
     init {
         imageView = itemView.findViewById(R.id.image)
         title = itemView.findViewById(R.id.title)
-        indicator =itemView.findViewById(R.id.indicatorView)
+        indicator = itemView.findViewById(R.id.indicatorView)
 
     }
 

@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 
 import com.marcinorlowski.fonty.Fonty;
 import com.pentavalue.yousry.rakaislamicapp.R;
-import com.pentavalue.yousry.rakaislamicapp.java.models.Prayer;
-import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.DetailViewHolder;
 import com.pentavalue.yousry.rakaislamicapp.java.models.Detail;
+import com.pentavalue.yousry.rakaislamicapp.kotlin.holders.DetailViewHolder;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ import java.util.List;
  */
 
 public class DetailsAdapter extends RecyclerView.Adapter<DetailViewHolder> {
-    List<Detail> details ;
+    List<Detail> details;
     Context context;
 
     public DetailsAdapter(List<Detail> details, Context context) {
@@ -30,7 +29,7 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailViewHolder> {
 
     @Override
     public DetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_details_home,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_details_home, parent, false);
         Fonty.setFonts((ViewGroup) view);
 
         return new DetailViewHolder(view);
