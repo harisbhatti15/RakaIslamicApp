@@ -30,4 +30,11 @@
         android:textColor="@color/blackColor"
         android:textStyle="normal" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorIsabelline">
+
+    </View>
+
 </LinearLayout>

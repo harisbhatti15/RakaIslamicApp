@@ -3,7 +3,6 @@ package com.pentavalue.yousry.rakaislamicapp.kotlin.activities
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.Toast
 import com.marcinorlowski.fonty.Fonty
 import com.pentavalue.yousry.rakaislamicapp.R
 import com.pentavalue.yousry.rakaislamicapp.java.adapters.DetailsAdapter
@@ -31,7 +30,7 @@ class PrayerActivity : AppCompatActivity() {
 
         adapterRakaat = RakaatAdapter(prayer!!.rakaat, this,
                 RakaatAdapter.OnItemClickedListener { view, rakaat, oldView ->
-                    Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this, rakaat.title, Toast.LENGTH_LONG).show()
 
                     val adapter = DetailsAdapter(rakaat.details, this);
                     recyclurDetails.setLayoutManager(LinearLayoutManager(this,

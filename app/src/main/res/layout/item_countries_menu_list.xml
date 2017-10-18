@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="@color/whiteColor"
-    android:weightSum="1">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/name"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
-        android:gravity="center|end|start"
-        android:paddingEnd="35dp"
-        android:paddingStart="35dp"
-        android:text="Test"
+        android:layout_height="50dp"
+        android:background="@color/whiteColor"
+        android:weightSum="1">
 
-        android:textColor="@color/blackColor" />
 
-    <ImageView
-        android:id="@+id/image"
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
+            android:gravity="center|end|start"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="Test"
+
+            android:textColor="@color/colorDimGray" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|end"
+            android:layout_weight="0.8"
+            android:padding="15dp"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_checkmark_gray" />
+
+
+    </LinearLayout>
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="start|end"
-        android:layout_weight="0.8"
-        android:padding="15dp"
-        android:paddingEnd="5dp"
-        android:paddingStart="5dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/icon_checkmark_gray" />
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
 
+        android:layout_marginStart="20dp"
+        android:background="@color/colorPlatinum">
+
+    </View>
 
 </LinearLayout>

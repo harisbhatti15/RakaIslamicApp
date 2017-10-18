@@ -33,7 +33,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/my_toolbar">
+        android:layout_below="@+id/my_toolbar"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -46,17 +48,16 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="25dp"
-                android:background="@color/whiteColor"
+                android:background="@drawable/shape_shadow_menu"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/friday_prayer_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -91,10 +92,9 @@
                     android:id="@+id/eid_prayer_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -129,10 +129,9 @@
                     android:id="@+id/funeral_prayer_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -167,10 +166,9 @@
                     android:id="@+id/taraweeh_prayer_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -195,16 +193,17 @@
 
             <LinearLayout
                 android:id="@+id/country_item"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|end"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/whiteColor"
+                android:background="@drawable/shape_shadow_menu"
                 android:orientation="horizontal"
-                android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:weightSum="15">
 
                 <ImageView
@@ -230,12 +229,12 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:drawableEnd="@drawable/ic_right_arrow"
-                    android:drawablePadding="10dp"
+                    android:drawablePadding="3dp"
                     android:drawableRight="@drawable/ic_right_arrow"
                     android:gravity="end|center_vertical"
                     android:text="@string/makka"
-                    android:textColor="@color/colorDarkJungleGreen"
-                    android:textSize="13sp"
+                    android:textColor="@color/colorPaleBrown"
+                    android:textSize="16sp"
 
                     />
 
@@ -247,18 +246,17 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
-                android:background="@color/whiteColor"
+                android:background="@drawable/shape_shadow_menu"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/about_item"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/whiteColor"
                     android:orientation="horizontal"
 
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -294,10 +292,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|end"
-                    android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:paddingTop="10dp"
                     android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -365,7 +362,7 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/blackColor"
+        android:background="@color/cardview_shadow_start_color"
         android:text="Ads"
         android:textColor="@color/whiteColor" />
 </RelativeLayout>

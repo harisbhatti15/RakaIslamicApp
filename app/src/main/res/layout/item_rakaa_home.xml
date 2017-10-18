@@ -34,17 +34,11 @@
             android:maxLines="1"
             android:text="Tashahud" />
 
-        <View
-            android:id="@+id/indicatorView"
-            android:layout_width="match_parent"
-            android:layout_height="1dip"
-            android:background="@color/colorPlatinum">
 
-        </View>
     </LinearLayout>
 
     <View
-        android:id="@+id/line"
+        android:id="@+id/indicatorView"
         android:layout_width="match_parent"
         android:layout_height="1dip"
         android:background="@color/colorPlatinum">

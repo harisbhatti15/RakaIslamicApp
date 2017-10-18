@@ -19,9 +19,9 @@ public class CountryViewHolder extends RecyclerView.ViewHolder {
     public static final String TAG = CountryViewHolder.class.getSimpleName();
     public LinearLayout layout;
     public ImageView photo;
+    public TextView name;
     private Context context;
     private View view;
-    private TextView name;
 
 
     public CountryViewHolder(View itemView) {

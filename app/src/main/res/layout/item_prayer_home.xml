@@ -27,14 +27,16 @@
             android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:orientation="horizontal">
+            android:background="@color/blackColor"
+            android:orientation="horizontal"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/nameView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="end|start"
-                android:layout_weight="0.4"
+                android:layout_gravity="end|start|center"
+                android:layout_weight="0.275"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="NAME"
@@ -45,15 +47,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-
+                android:layout_weight="0.1"
+                android:scaleType="fitCenter"
                 android:src="@drawable/clock" />
 
             <TextView
                 android:id="@+id/timeView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="start|end"
-                android:layout_weight="0.3"
+                android:layout_gravity="start|end|center"
+                android:layout_weight="0.275"
                 android:gravity="center"
                 android:text="TIME"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"

@@ -72,6 +72,7 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
                 //lastViewHolder.photo.setVisibility(View.INVISIBLE);
                 //holder.photo.setVisibility(View.VISIBLE);
                 holderList.get(lastPosition).photo.setVisibility(View.INVISIBLE);
+                holderList.get(lastPosition).name.setTextColor(context.getResources().getColor(R.color.colorDimGray));
                 lastPosition = position;
                 holderList.get(lastPosition).photo.setVisibility(View.VISIBLE);
                 selectedItem = countries.get(lastPosition);
@@ -88,6 +89,7 @@ public class CountryAdpater extends RecyclerView.Adapter<CountryViewHolder> {
 
     public void setSelectedItem(int position) {
         holderList.get(position).photo.setVisibility(View.VISIBLE);
+        holderList.get(position).name.setTextColor(context.getResources().getColor(R.color.colorPaleBrown));
         lastPosition = position;
         selectedItem = countries.get(position);
     }

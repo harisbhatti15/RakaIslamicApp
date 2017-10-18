@@ -46,4 +46,5 @@
     <color name="dark_gray">#ffb3b3b3</color>
     <color name="very_dark_gray">#636363</color>
     <color name="gray">#8b8383</color>
+    <color name="shadow_card_view_color">#10000000</color>
 </resources>

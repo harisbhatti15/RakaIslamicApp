@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_white"
+    android:background="#F2F3F7"
     android:orientation="vertical"
     tools:context="com.pentavalue.yousry.rakaislamicapp.kotlin.activities.PrayerActivity">
 
@@ -28,26 +28,28 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
-        android:layout_marginBottom="10dp"
-        android:layout_below="@+id/toolbar"
-        android:layout_above="@+id/button_ads"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/button_ads"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingEnd="25dp"
-            android:paddingStart="25dp">
+            android:paddingEnd="2dp"
+            android:paddingStart="2dp">
 
             <LinearLayout
-                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/toolbar"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -55,12 +57,12 @@
                     android:src="@drawable/islamic_prayer_header" />
 
                 <TextView
-                    android:paddingLeft="20dp"
-                    android:paddingRight="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="start|end"
                     android:gravity="start|end|center"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:text="@string/information_about_prayer"
                     android:textColor="@color/colorPaleBrown"
                     android:textSize="16sp"
@@ -71,11 +73,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@color/whiteColor"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/shap_shadow"
+                android:paddingBottom="10dp"
                 android:paddingLeft="23dp"
                 android:paddingRight="23dp"
-                android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="@string/Gom3aDetailsPrayer"
                 android:textColor="@color/colorDimGray"
@@ -83,39 +88,42 @@
                 android:textStyle="normal" />
 
             <LinearLayout
-                android:padding="12dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/toolbar"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:padding="12dp">
 
                 <ImageView
-                    android:scaleType="fitCenter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/header_raka_left" />
 
                 <TextView
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="start|end"
                     android:gravity="start|end|center"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     android:text="@string/rakaat"
                     android:textColor="@color/colorPaleBrown"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/recyclurPrayer"
-                android:layout_margin="10dp"
-                android:background="@color/whiteColor"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shap_shadow"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
@@ -134,13 +142,12 @@
                         android:id="@+id/recyclurDetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:isScrollContainer="true">
 
                     </android.support.v7.widget.RecyclerView>
                 </ScrollView>
-
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
@@ -149,7 +156,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/blackColor"
+        android:background="@color/cardview_shadow_start_color"
+        android:drawableTop="@android:drawable/ic_menu_close_clear_cancel"
         android:text="Ads"
         android:textColor="@color/whiteColor" />
 </RelativeLayout>
