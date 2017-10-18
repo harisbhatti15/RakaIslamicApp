@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@drawable/bg_white">
 
 
@@ -14,11 +12,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorPaleBrown"
-        app:navigationIcon="@drawable/icons_menu_white">
+        app:navigationIcon="@drawable/nav">
 
         <TextView
             android:layout_width="match_parent"
@@ -37,7 +34,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/my_toolbar">
+        android:layout_below="@+id/my_toolbar"
+        android:layout_above="@+id/button_ads"
+        android:layout_marginBottom="10dp">
 
 
         <android.support.design.widget.AppBarLayout
@@ -53,7 +52,7 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:id="@+id/collapsing_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorButtonNormal"
                 app:expandedTitleMarginEnd="64dp"
@@ -98,56 +97,62 @@
         </android.support.design.widget.AppBarLayout>
 
 
-        <android.support.v4.widget.NestedScrollView
+       <!-- <android.support.v4.widget.NestedScrollView
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
+-->
             <LinearLayout
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/tttt"
-                android:layout_margin="30dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/app_bar_layout"
+                android:layout_margin="20dp"
                 android:background="@color/whiteColor"
                 android:orientation="vertical">
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recyclurRakaat"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"/>
 
-                </android.support.v7.widget.RecyclerView>
-
-                <ScrollView
+                <!--<ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:verticalScrollbarPosition="defaultPosition">
+                    android:layout_height="wrap_content"
+                    android:verticalScrollbarPosition="defaultPosition">-->
 
                     <android.support.v7.widget.RecyclerView
+                        android:padding="5dp"
                         android:id="@+id/recyclurDetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:layout_marginTop="10dp"
-                        android:isScrollContainer="true">
+                        android:layout_marginTop="10dp"/>
 
-                    </android.support.v7.widget.RecyclerView>
-                </ScrollView>
-
+               <!-- </ScrollView>-->
             </LinearLayout>
 
-        </android.support.v4.widget.NestedScrollView>
+        <!--</android.support.v4.widget.NestedScrollView>-->
 
 
     </android.support.design.widget.CoordinatorLayout>
+
+    <Button
+        android:id="@+id/button_ads"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blackColor"
+        android:text="Ads"
+        android:textColor="@color/whiteColor" />
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </FrameLayout>
+
 
 </RelativeLayout>

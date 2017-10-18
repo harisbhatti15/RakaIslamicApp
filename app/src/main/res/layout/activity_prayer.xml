@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,6 +28,9 @@
     </android.support.v7.widget.Toolbar>
 
     <ScrollView
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/button_ads"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -36,29 +39,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingEnd="25dp"
-
             android:paddingStart="25dp">
 
             <LinearLayout
+                android:padding="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/toolbar"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start|end"
-                    android:layout_weight="0.8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/islamic_prayer_header" />
 
                 <TextView
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="start|end"
-                    android:layout_weight="0.2"
                     android:gravity="start|end|center"
                     android:text="@string/information_about_prayer"
                     android:textColor="@color/colorPaleBrown"
@@ -72,33 +73,32 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@color/whiteColor"
-                android:padding="10dp"
+                android:padding="23dp"
                 android:text="@string/Gom3aDetailsPrayer"
                 android:textColor="@color/colorDimGray"
                 android:textSize="14sp"
                 android:textStyle="normal" />
 
             <LinearLayout
+                android:padding="12dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/toolbar"
                 android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start|end"
-                    android:layout_weight="0.8"
-                    android:src="@drawable/raka_color"
-                    android:tint="@color/colorPaleBrown" />
+                    android:scaleType="fitCenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/header_raka_left" />
 
                 <TextView
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="start|end"
-                    android:layout_weight="0.2"
                     android:gravity="start|end|center"
                     android:text="@string/rakaat"
                     android:textColor="@color/colorPaleBrown"
@@ -141,5 +141,12 @@
         </LinearLayout>
     </ScrollView>
 
-
-</LinearLayout>
+    <Button
+        android:id="@+id/button_ads"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blackColor"
+        android:text="Ads"
+        android:textColor="@color/whiteColor" />
+</RelativeLayout>

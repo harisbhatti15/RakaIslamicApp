@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorPaleBrown"
@@ -38,10 +37,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -95,7 +93,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -132,7 +131,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -169,7 +169,8 @@
                     android:layout_height="wrap_content"
                     android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -202,7 +203,8 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/whiteColor"
                 android:orientation="horizontal"
-                android:padding="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:weightSum="15">
 
                 <ImageView
@@ -230,7 +232,7 @@
                     android:drawableEnd="@drawable/ic_right_arrow"
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_right_arrow"
-                    android:gravity="start|end|center"
+                    android:gravity="end|center_vertical"
                     android:text="@string/makka"
                     android:textColor="@color/colorDarkJungleGreen"
                     android:textSize="13sp"
@@ -255,7 +257,8 @@
                     android:background="@color/whiteColor"
                     android:orientation="horizontal"
 
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -293,7 +296,8 @@
                     android:layout_gravity="start|end"
                     android:background="@color/whiteColor"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:weightSum="1">
 
                     <ImageView
@@ -357,4 +361,11 @@
 
     </ScrollView>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blackColor"
+        android:text="Ads"
+        android:textColor="@color/whiteColor" />
 </RelativeLayout>

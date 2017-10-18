@@ -29,14 +29,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         Fonty.setFonts(this)
-        avi.setIndicator(Util.ANIMATION_LOADING);
-    }
-
-
-    var locationCheck: Boolean = false;
-    var x = 0L
-    override fun onResume() {
-        super.onResume()
+        avi.setIndicator(Util.ANIMATION_LOADING)
         try {
             val sharedPref: SharedPreferences = getSharedPreferences(Util.SHARED_KEY, Context.MODE_PRIVATE)
 
@@ -54,6 +47,14 @@ class SplashActivity : AppCompatActivity() {
             //Toast.makeText(this, e.message, Toast.LENGTH_LONG).show()
             locationCheck = false
         }
+    }
+
+
+    var locationCheck: Boolean = false;
+    var x = 0L
+    override fun onResume() {
+        super.onResume()
+
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

@@ -39,9 +39,7 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder> {
 
     @Override
     public void onBindViewHolder(PrayerViewHolder holder, final int position) {
-
         holder.bind(prayers.get(position), context);
-
         if (prayers.get(position).getRakaat().size() == 0) {
 
         } else {
@@ -53,9 +51,8 @@ public class PrayerAdapter extends RecyclerView.Adapter<PrayerViewHolder> {
             });
             holder.getContainer().setBackgroundColor(context.getResources().getColor(prayers.get(position).getColor()));
         }
-
-
     }
+
 
     @Override
     public int getItemViewType(int position) {

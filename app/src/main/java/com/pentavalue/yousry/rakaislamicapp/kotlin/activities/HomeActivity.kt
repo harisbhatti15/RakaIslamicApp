@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -33,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        Fonty.setFonts(this);
+        Fonty.setFonts(this)
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -61,7 +62,12 @@ class HomeActivity : AppCompatActivity() {
             country_prayers_view.text = getString(R.string.text_view_home_city) + " " + sharedPref.getString(Util.COUNTRY_SHARED_PREFERENCE, resources.getString(R.string.makka))
         }
 
-
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            recyclurPrayer.setOnScrollChangeListener({ v, scrollX, scrollY, oldScrollX, oldScrollY ->
+                recyclurPrayer.clearOnScrollListeners()
+                recyclurPrayer.setOnFlingListener(null)
+            })
+        };*/
         bindView()
 
     }
@@ -74,16 +80,8 @@ class HomeActivity : AppCompatActivity() {
 
 
     fun bindView() {
-
-
         title = resources.getString(R.string.five_prayers_toolbar)
-
-
-
-
         drawRecyclurViewPrayers()
-
-
         //recyclurPrayer.setOnFlingListener(snapHelperStart)
         adapterRakaat = RakaatAdapter(prayers!!.get(0).rakaat, this,
                 RakaatAdapter.OnItemClickedListener { view, rakaat, oldView ->
@@ -92,18 +90,15 @@ class HomeActivity : AppCompatActivity() {
                     recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                             LinearLayoutManager.VERTICAL, true))
                     recyclurDetails.adapter = adapterDetails
-
                 })
         recyclurRakaat.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false))
-
         recyclurRakaat.adapter = adapterRakaat
-
-
         val adapterDetails = DetailsAdapter(prayers!!.get(1).rakaat.get(0).details, this);
         recyclurDetails.setLayoutManager(LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, true))
         recyclurDetails.adapter = adapterDetails
+        recyclurDetails.smoothScrollToPosition(adapterDetails.itemCount)
     }
 
 
@@ -113,27 +108,27 @@ class HomeActivity : AppCompatActivity() {
         val prayer1 = Prayer()
         prayer1.color = R.color.Onyx;
         prayer1.drawable = resources.getDrawable(R.drawable.card_bg_elfagr)
-        prayer1.time = "4:30"
+        prayer1.time = "4:30 ص"
         prayer1.title = resources.getString(R.string.ElfgrPrayer)
         val prayer2 = Prayer()
         prayer2.color = R.color.PersianPlum
         prayer2.drawable = resources.getDrawable(R.drawable.card_bg_eldoher)
-        prayer2.time = "12:30"
+        prayer2.time = "12:30 م"
         prayer2.title = resources.getString(R.string.ElTohrPrayer)
         val prayer3 = Prayer()
         prayer3.color = R.color.Teal_blue
         prayer3.drawable = resources.getDrawable(R.drawable.card_bg_elasr)
-        prayer3.time = "4:10"
+        prayer3.time = "4:10 م"
         prayer3.title = resources.getString(R.string.ElAsrPrayer)
         val prayer4 = Prayer()
         prayer4.color = R.color.SealBrown
         prayer4.drawable = resources.getDrawable(R.drawable.card_bg_elmagrb)
-        prayer4.time = "6:30"
+        prayer4.time = "6:30 م"
         prayer4.title = resources.getString(R.string.ElMagrbPrayer)
         val prayer5 = Prayer()
         prayer5.color = R.color.MediumJungleGreen
         prayer5.drawable = resources.getDrawable(R.drawable.card_bg_elhasha)
-        prayer5.time = "8:30"
+        prayer5.time = "8:30 م"
         prayer5.title = resources.getString(R.string.ElHashaPrayer)
 
 
@@ -391,8 +386,7 @@ class HomeActivity : AppCompatActivity() {
     var lastPosition = 0
     fun drawRecyclurViewPrayers() {
         var snapHelperCenter = LinearSnapHelper()
-        var snapHelperStart = GravitySnapHelper(Gravity.START)
-
+        //var snapHelperStart = GravitySnapHelper(Gravity.START)
 
         val llm = LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false)
@@ -401,49 +395,69 @@ class HomeActivity : AppCompatActivity() {
         llm.stackFromEnd = false
         val adapter = PrayerAdapter(this, prayers,
                 PrayerAdapter.OnItemClickedListener { view, prayer, position ->
-
-
-                    if (position == 0) {
-
-                        recyclurPrayer.smoothScrollToPosition(position);
-                    }
-                    if (position == 1) {
-                        if (position > lastPosition) {
-                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
-                            recyclurPrayer.smoothScrollToPosition(position);
-                        } else {
-                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
-                            recyclurPrayer.smoothScrollToPosition(position - 1);
+                    if (position!=lastPosition){
+                        if (position == 0) {
+                            recyclurPrayer.clearOnScrollListeners()
+                            recyclurPrayer.setOnFlingListener(null)
+                            recyclurPrayer.smoothScrollToPosition(position)
                         }
-
-                    } else if (position == 2) {
-                        if (position > lastPosition) {
+                        if (position == 1) {
+                            recyclurPrayer.clearOnScrollListeners()
+                            recyclurPrayer.setOnFlingListener(null)
+                            bindView()
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
-
                             recyclurPrayer.smoothScrollToPosition(position + 1);
-                        } else {
+                            //recyclurPrayer.smoothScrollToPosition(position)
+                            /*if (position > lastPosition) {
+
+                                snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+                                recyclurPrayer.smoothScrollToPosition(position+1);
+                            } else {
+                                snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+                                recyclurPrayer.smoothScrollToPosition(position + 1);
+                            }*/
+
+                        } else if (position == 2) {
+                            recyclurPrayer.clearOnScrollListeners()
+                            recyclurPrayer.setOnFlingListener(null)
+                            bindView()
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
-
-                            recyclurPrayer.smoothScrollToPosition(position - 1);
-                        }
-
-                    } else if (position == 3) {
-                        if (position > lastPosition) {
-                            snapHelperCenter.attachToRecyclerView(recyclurPrayer)
-
                             recyclurPrayer.smoothScrollToPosition(position + 1);
-                        } else {
+                            /* if (position > lastPosition) {
+                                 snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+                                 recyclurPrayer.smoothScrollToPosition(position + 1);
+                             } else {
+                                 snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+
+                                 recyclurPrayer.smoothScrollToPosition(position+1);
+                             }
+     */
+                        } else if (position == 3) {
+                            recyclurPrayer.clearOnScrollListeners()
+                            recyclurPrayer.setOnFlingListener(null)
+                            bindView()
                             snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+                            recyclurPrayer.smoothScrollToPosition(position + 1);
+                            /*if (position > lastPosition) {
+                                snapHelperCenter.attachToRecyclerView(recyclurPrayer)
 
-                            recyclurPrayer.smoothScrollToPosition(position - 1);
+                                recyclurPrayer.smoothScrollToPosition(position + 1);
+                            } else {
+                                snapHelperCenter.attachToRecyclerView(recyclurPrayer)
+
+                                recyclurPrayer.smoothScrollToPosition(position+1);
+                            }*/
+
+                        } else if (position == 4) {
+                            recyclurPrayer.clearOnScrollListeners()
+                            recyclurPrayer.setOnFlingListener(null)
+                            bindView()
+                            recyclurPrayer.smoothScrollToPosition(position)
+
+                            //snapHelperStart.attachToRecyclerView(recyclurPrayer)
                         }
-
-                    } else if (position == 4) {
-
-                        recyclurPrayer.smoothScrollToPosition(position);
-
-                        //snapHelperStart.attachToRecyclerView(recyclurPrayer)
                     }
+
                     lastPosition = position
                     //adapterRakaat!!.rakaats.clear()
                     adapterRakaat = RakaatAdapter(prayer.rakaat, this,
@@ -456,9 +470,6 @@ class HomeActivity : AppCompatActivity() {
                     recyclurRakaat.adapter = adapterRakaat
                 })
         recyclurPrayer.setLayoutManager(llm)
-
-
-
         recyclurPrayer.adapter = adapter
     }
 
