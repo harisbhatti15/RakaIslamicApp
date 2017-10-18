@@ -17,25 +17,22 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="start|end"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
             android:paddingLeft="5dp"
-
             android:paddingRight="5dp"
             android:paddingTop="5dp"
-            android:scaleType="fitCenter"
             android:src="@drawable/tashud_black" />
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_gravity="center"
             android:gravity="start|end"
             android:maxLines="1"
-            android:text="test" />
+            android:text="Tashahud" />
 
         <View
             android:id="@+id/indicatorView"

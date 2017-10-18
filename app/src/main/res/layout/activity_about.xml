@@ -69,8 +69,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/textView2"
-
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="85dp"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:text="@string/app_about_details"
@@ -100,7 +99,7 @@
                 android:paddingRight="20dp"
                 android:text="@string/app_about_details_2"
                 android:textColor="@color/blackColor"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/textView6"
